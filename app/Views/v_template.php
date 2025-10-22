@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Master Data
+                                    Data
                                      <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
