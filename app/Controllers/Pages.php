@@ -15,14 +15,5 @@ class Pages extends Controller
     {
         return view('inactive'); // menampilkan file app/Views/inactive.php
     }
-
-        public function produk()
-    {
-        return view('produk'); // menampilkan file app/Views/inactive.php
-    }
-
-        public function kategori()
-    {
-        return view('kategori'); // menampilkan file app/Views/inactive.php
-    }
+    
 }

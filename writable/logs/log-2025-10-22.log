@@ -1,0 +1,28 @@
+CRITICAL - 2025-10-22 02:46:34 --> ErrorException: Undefined variable $menu
+[Method: GET, Route: /]
+in APPPATH\Views\v_template.php on line 206.
+ 1 APPPATH\Views\v_template.php(206): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $menu', 'C:\\laragon\\www\\aplikasi-kasir-inf-24-upb\\app\\Views\\v_template.php', 206)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\aplikasi-kasir-inf-24-upb\\app\\Views\\v_template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('v_template', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('v_template')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-22 02:50:30 --> ErrorException: Undefined variable $menu
+[Method: GET, Route: /]
+in APPPATH\Views\v_template.php on line 206.
+ 1 APPPATH\Views\v_template.php(206): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $menu', 'C:\\laragon\\www\\aplikasi-kasir-inf-24-upb\\app\\Views\\v_template.php', 206)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\aplikasi-kasir-inf-24-upb\\app\\Views\\v_template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('v_template', [], true)
+ 5 APPPATH\Controllers\Home.php(9): view('v_template')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

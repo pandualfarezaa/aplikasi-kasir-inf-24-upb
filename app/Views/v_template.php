@@ -203,27 +203,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('Admin') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('active') ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Active Page</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('inactive') ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inactive Page</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="<?= base_url('Penjualan') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cash-register"></i>
+                                <p>
+                                    Penjualan
+                                </p>
+                            </a>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -231,7 +224,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <p>
                                     Master Data
                                      <i class="right fas fa-angle-left"></i>
-                                    <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
                             
@@ -248,7 +240,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>Kategori</p>
                                     </a>
                                 </li>
+                                 <li class="nav-item">
+                                    <a href="<?= base_url('satuan') ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Satuan</p>
+                                    </a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a href="<?= base_url('user') ?>" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>User</p>
+                                    </a>
+                                </li>
                             </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="<?= base_url('Settings') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cogs"></i>
+                                <p>
+                                    Settings
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
                         </li>
                     </ul>
                 </nav>
