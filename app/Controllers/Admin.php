@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class Admin extends BaseController
 {
-    public function dashboard()
+    public function index()
     {
         $data = [
         'judul' => 'Dashboard',
@@ -14,7 +14,7 @@ class Admin extends BaseController
         'menu' => 'dashboard',
         'submenu' => '',
         'page' => 'v_admin',
-        ]
+        ];
         return view('v_template', $data);
     }
 }
