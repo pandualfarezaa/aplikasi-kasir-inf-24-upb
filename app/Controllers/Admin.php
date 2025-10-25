@@ -8,6 +8,6 @@ class Admin extends BaseController
 {
     public function dashboard()
     {
-        return view('v_template');
+        return view('v_home');
     }
 }

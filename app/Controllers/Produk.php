@@ -2,10 +2,15 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use App\Controllers\BaseController;
+
+class Produk extends BaseController
 {
-        public function produk()
+    public function Produk()
     {
-        return view('produk'); 
+        $data = [
+            'page' => 'v_produk',
+        ];
+        return view('v_template', $data); 
     }
 }

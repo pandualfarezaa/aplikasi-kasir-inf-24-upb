@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class Admin extends BaseController
 {
-    public function penjualan()
+    public function index()
     {
         return view('v_template');
     }
