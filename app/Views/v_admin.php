@@ -6,6 +6,6 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Halaman Home</h1>
+    <h1>Halaman Admin</h1>
 </body>
 </html>

@@ -21,6 +21,7 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -29,7 +30,13 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
 $routes->get('/', 'Home::index');
+$routes->get('/produk', 'Produk::index');
+$routes->get('/satuan', 'Satuan::index');
+$routes->get('/admin', 'Admin::index');
+$routes->get('/kategori', 'Kategori::index');
+$routes->get('/user', 'User::index');
 
 /*
  * --------------------------------------------------------------------

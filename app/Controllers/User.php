@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class User extends BaseController
 {
-     public function user()
+    public function index()
     {
-        return view('user'); 
+        $data = [
+            'page' => 'v_user',
+        ];
+        return view('v_template', $data);
     }
 }
