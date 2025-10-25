@@ -2,10 +2,15 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use App\Controllers\BaseController;
+
+class Satuan extends BaseController
 {
-      public function satuan()
+    public function index()
     {
-        return view('satuan'); 
+        $data = [
+            'page' => 'Satuan',
+        ];
+        return view('v_template', $data);
     }
 }

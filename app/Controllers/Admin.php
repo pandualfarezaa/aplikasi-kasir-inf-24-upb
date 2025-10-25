@@ -16,5 +16,7 @@ class Admin extends BaseController
         'page' => 'v_admin',
         ];
         return view('v_template', $data);
+
+        return view('v_template')
     }
 }
