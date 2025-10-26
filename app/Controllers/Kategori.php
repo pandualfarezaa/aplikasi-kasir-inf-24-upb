@@ -2,10 +2,17 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Kategori extends BaseController
 {
-        public function kategori()
+    public function index()
     {
-        return view('kategori'); 
+        $data = [
+            'judul' => 'Data',
+            'subjudul' => 'Kategori',
+            'menu' => 'data',
+            'submenu' => 'kategori',
+            'page' => 'v_kategori',
+        ];
+        return view('v_template', $data);
     }
 }

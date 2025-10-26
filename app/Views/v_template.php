@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item has-treeview">
-                            <a href="<?= base_url('Admin') ?>" class="nav-link">
+                            <a href="<?= base_url('public/admin') ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -99,8 +99,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item <?= $menu == 'data' ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= $menu == 'data' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Data
@@ -110,25 +110,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('produk') ?>" class="nav-link">
+                                    <a href="<?= base_url('public/produk') ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Produk</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('kategori') ?>" class="nav-link">
+                                    <a href="<?= base_url('public/kategori') ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                  <li class="nav-item">
-                                    <a href="<?= base_url('satuan') ?>" class="nav-link">
+                                    <a href="<?= base_url('public/satuan') ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                  <li class="nav-item">
-                                    <a href="<?= base_url('user') ?>" class="nav-link">
+                                    <a href="<?= base_url('public/user') ?>" class="nav-link <?= $submenu == 'user' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
                                     </a>
@@ -136,11 +136,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="<?= base_url('Settings') ?>" class="nav-link">
+                            <a href="<?= base_url('public/settings') ?>" class="nav-link <?= $menu == 'settings' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cogs"></i>
-                                <p>
-                                    Settings
-                                    <span class="right badge badge-danger">New</span>
+                                <p> Settings
+
                                 </p>
                             </a>
                         </li>
