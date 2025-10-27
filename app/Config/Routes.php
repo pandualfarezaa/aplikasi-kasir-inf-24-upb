@@ -37,7 +37,7 @@ $routes->get('/satuan', 'Satuan::index');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/kategori', 'Kategori::index');
 $routes->get('/user', 'User::index');
-$routes->get('/settings', 'Admin::Settings');
+$routes->get('admin/settings', 'Admin::Settings');
 
 /*
  * --------------------------------------------------------------------
