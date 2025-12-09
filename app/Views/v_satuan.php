@@ -11,7 +11,18 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      The body of the card
+      <table class="table table-responsive table-bordered">
+        <tr>
+          <th>No</th>
+          <th>Satuan</th>
+          <th>Aksi</th>
+        </tr>
+        <?php foreach ($satuan as $key => $value) { ?>
+          <tr>
+            
+          </tr>
+        <?php } ?>
+      </table>
     </div>
     <!-- /.card-body -->
   </div>
