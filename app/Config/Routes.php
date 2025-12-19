@@ -38,6 +38,7 @@ $routes->get('/admin', 'Admin::index');
 $routes->get('/kategori', 'Kategori::index');
 $routes->get('/user', 'User::index');
 $routes->get('admin/settings', 'Admin::Settings');
+$routes->post('satuan/InsertData', 'Satuan::InsertData');
 
 /*
  * --------------------------------------------------------------------

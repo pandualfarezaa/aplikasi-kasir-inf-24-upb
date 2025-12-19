@@ -25,4 +25,12 @@ class Satuan extends BaseController
         ];
         return view('v_template', $data);
     }
+
+    public function InsertData()
+    {
+        $data = ['nama_satuan' => $this->request->getPost('nama_satuan')];
+        $this->ModelSatuan->InsertData($data);
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');
+        return redirect()->to(base_url('public/satuan'));
+    }
 }
