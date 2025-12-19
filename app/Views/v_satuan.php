@@ -36,7 +36,8 @@
               <td><?= $no++ ?></td>
               <td><?= $value['nama_satuan'] ?></td>
               <td>
-                <button class="btn btn-warning btn-sm btn-flat "><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-warning btn-sm btn-flat" data-toggle="modal"
+                  data-target="#edit-data<?= $value['id_satuan'] ?>"><i class="fas fa-pencil-alt"></i></button>
                 <button class="btn btn-danger btn-sm btn-flat"><i class="fas fa-trash"></i></button>
               </td>
             </tr>
@@ -79,3 +80,36 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<?php foreach ($satuan as $key => $value) { ?>
+  <!-- Modal Add Data -->
+  <div class="modal fade" id="edit-data<?= $value['id_satuan'] ?>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Data <?= $subjudul ?></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <?php echo form_open(base_url('public/satuan/UpdateData/'. $value['id_satuan'])) ?>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="">Nama Satuan</label>
+            <input name="nama_satuan" value="<?= $value['nama_satuan'] ?>" class="form-control" placeholder="Satuan" required>
+          </div>
+
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-warning btn-flat">Save</button>
+        </div>
+        <?php echo form_close() ?>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+<?php } ?>

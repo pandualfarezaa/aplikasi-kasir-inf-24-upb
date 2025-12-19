@@ -33,4 +33,15 @@ class Satuan extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');
         return redirect()->to(base_url('public/satuan'));
     }
+
+    public function UpdateData($id_satuan)
+    {
+        $data = [
+            'id_satuan' => $id_satuan,
+            'nama_satuan' => $this->request->getPost('nama_satuan')
+        ];
+        $this->ModelSatuan->UpdateData($data);
+        session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
+        return redirect()->to(base_url('public/satuan'));
+    }
 }

@@ -17,4 +17,11 @@ class ModelSatuan extends Model
     {
         $this->db->table('tbl_satuan')->insert($data);
     }
+
+    public function UpdateData($data)
+    {
+        $this->db->table('tbl_satuan')
+            ->where('id_satuan', $data['id_satuan'])
+            ->update($data);
+    }
 }
