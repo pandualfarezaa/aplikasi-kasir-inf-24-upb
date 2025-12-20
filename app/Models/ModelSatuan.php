@@ -24,4 +24,11 @@ class ModelSatuan extends Model
             ->where('id_satuan', $data['id_satuan'])
             ->update($data);
     }
+
+    public function DeleteData($data)
+    {
+        $this->db->table('tbl_satuan')
+            ->where('id_satuan', $data['id_satuan'])
+            ->delete();
+    }
 }

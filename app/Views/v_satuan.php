@@ -38,7 +38,8 @@
               <td>
                 <button class="btn btn-warning btn-sm btn-flat" data-toggle="modal"
                   data-target="#edit-data<?= $value['id_satuan'] ?>"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btn-flat"><i class="fas fa-trash"></i></button>
+                <button class="btn btn-danger btn-sm btn-flat" data-toggle="modal"
+                  data-target="#delete-data<?= $value['id_satuan'] ?>"><i class="fas fa-trash"></i></button>
               </td>
             </tr>
           <?php } ?>
@@ -81,8 +82,9 @@
 </div>
 <!-- /.modal -->
 
+
+<!-- Modal Edit Data -->
 <?php foreach ($satuan as $key => $value) { ?>
-  <!-- Modal Add Data -->
   <div class="modal fade" id="edit-data<?= $value['id_satuan'] ?>">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -104,6 +106,35 @@
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-warning btn-flat">Save</button>
+        </div>
+        <?php echo form_close() ?>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+<?php } ?>
+
+
+<!-- Modal Delete Data -->
+<?php foreach ($satuan as $key => $value) { ?>
+  <div class="modal fade" id="delete-data<?= $value['id_satuan'] ?>">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Hapus Data <?= $subjudul ?></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>Apakah Anda Yakin Ingin Menghapus <b><?= $value['nama_satuan'] ?></b>...?</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+          <a href="<?= base_url('publik/satuan/DeleteData/'. $value['id_satuan']) ?>" class="btn btn-danger btn-flat">Delete</a>
         </div>
         <?php echo form_close() ?>
       </div>

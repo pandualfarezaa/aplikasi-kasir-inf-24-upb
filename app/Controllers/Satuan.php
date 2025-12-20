@@ -44,4 +44,14 @@ class Satuan extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
         return redirect()->to(base_url('public/satuan'));
     }
+
+    public function DeleteData($id_satuan)
+    {
+        $data = [
+            'id_satuan' => $id_satuan
+        ];
+        $this->ModelSatuan->DeleteData($data);
+        session()->setFlashdata('pesan', 'Data Berhasil Dihapus!!');
+        return redirect()->to(base_url('public/satuan'));
+    }
 }
