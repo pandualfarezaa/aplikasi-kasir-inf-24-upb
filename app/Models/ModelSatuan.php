@@ -29,6 +29,6 @@ class ModelSatuan extends Model
     {
         $this->db->table('tbl_satuan')
             ->where('id_satuan', $data['id_satuan'])
-            ->delete();
+            ->delete($data);
     }
 }
