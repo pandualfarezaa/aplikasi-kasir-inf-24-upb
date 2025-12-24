@@ -41,6 +41,9 @@ $routes->get('admin/settings', 'Admin::Settings');
 $routes->post('satuan/InsertData', 'Satuan::InsertData');
 $routes->post('satuan/UpdateData/(:num)', 'Satuan::UpdateData/$1');
 $routes->get('satuan/delete-data/(:num)', 'Satuan::DeleteData/$1');
+$routes->post('kategori/InsertData', 'Kategori::InsertData');
+$routes->post('kategori/UpdateData/(:num)', 'Kategori::UpdateData/$1');
+$routes->get('kategori/delete-data/(:num)', 'Kategori::DeleteData/$1');
 
 /*
  * --------------------------------------------------------------------
