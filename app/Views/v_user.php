@@ -39,15 +39,20 @@
                             <td><?= $no++ ?></td>
                             <td><?= $value['nama_user'] ?></td>
                             <td><?= $value['email'] ?></td>
-                            <td><?= $value['password'] ?></td>
-                            <td><?= $value['level'] ?></td>
-                            <td>
+                            <td class="text-center"><?= $value['password'] ?></td>
+                            <td class="text-center"><?php
+                                if ($value['level'] == 1) { ?>
+                                    <span class="badge bg-success">Admin</span>
+                                <?php } else { ?>
+                                    <span class="badge bg-primary">Kasir</span>
+                                <?php } ?>
+                            </td>
+                            <td class="text-center">
                                 <button class="btn btn-warning btn-sm btn-flat" data-toggle="modal"
                                     data-target="#edit-data<?= $value['id_user'] ?>"><i
                                         class="fas fa-pencil-alt"></i></button>
                                 <button class="btn btn-danger btn-sm btn-flat" data-toggle="modal"
-                                    data-target="#delete-data<?= $value['id_user'] ?>"><i
-                                        class="fas fa-trash"></i></button>
+                                    data-target="#delete-data<?= $value['id_user'] ?>"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     <?php } ?>
@@ -58,3 +63,49 @@
     </div>
     <!-- /.card -->
 </div>
+
+<!-- Modal Add Data -->
+<div class="modal fade" id="add-data">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Data <?= $subjudul ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php echo form_open(base_url('public/user/InsertData')) ?>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="">Nama User</label>
+                    <input name="nama_user" class="form-control" placeholder="Nama User" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input name="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Level</label>
+                    <select name="level" class="form-control">
+                        <option value="1">Admin</option>
+                        <option value="2" selected>Kasir</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-flat">Save</button>
+            </div>
+            <?php echo form_close() ?>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
