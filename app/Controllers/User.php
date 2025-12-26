@@ -43,7 +43,9 @@ class User extends BaseController
     {
         $data = [
             'id_user' => $id_user,
-            'nama_user' => $this->request->getPost('nama_user')
+            'nama_user' => $this->request->getPost('nama_user'),
+            'email' => $this->request->getPost('email'),
+            'level' => $this->request->getPost('level'),
         ];
         $this->ModelUser->UpdateData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
