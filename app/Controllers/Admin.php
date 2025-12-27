@@ -29,4 +29,18 @@ class Admin extends BaseController
         return view('v_template', $data);
 
     }
+
+     public function Penjualan()
+    {
+        $data = [
+            'judul' => 'Penjualan',
+            'subjudul' => '',
+            'menu' => 'penjualan',
+            'submenu' => '',
+            'page' => 'v_penjualan',
+        ];
+        return view('v_template', $data);
+    }
 }
+
+   

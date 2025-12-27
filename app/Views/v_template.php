@@ -95,11 +95,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="<?= base_url('Penjualan') ?>" class="nav-link">
+                            <a href="<?= base_url('public/admin/penjualan') ?>"
+                            class="nav-link <?= $menu == 'penjualan' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cash-register"></i>
-                                <p>
-                                    Penjualan
-                                </p>
+                                <p>Penjualan</p>
                             </a>
                         </li>
                         <li class="nav-item <?= $menu == 'data' ? 'menu-open' : '' ?>">
