@@ -38,6 +38,7 @@ $routes->get('/admin', 'Admin::index');
 $routes->get('/kategori', 'Kategori::index');
 $routes->get('/user', 'User::index');
 $routes->get('admin/settings', 'Admin::Settings');
+$routes->get('admin/penjualan', 'Admin::Penjualan');
 $routes->post('satuan/InsertData', 'Satuan::InsertData');
 $routes->post('satuan/UpdateData/(:num)', 'Satuan::UpdateData/$1');
 $routes->get('satuan/delete-data/(:num)', 'Satuan::DeleteData/$1');
