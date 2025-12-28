@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 24, 2025 at 08:24 AM
+-- Generation Time: Dec 28, 2025 at 06:28 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_kasir`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jenis_kelamin` varchar(20) NOT NULL,
+  `cabang` varchar(50) NOT NULL,
+  `keluhan` text NOT NULL,
+  `keterangan` text NOT NULL,
+  `foto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `nama`, `jenis_kelamin`, `cabang`, `keluhan`, `keterangan`, `foto`) VALUES
+(1, 'Aska', 'Laki-laki', 'Cabang 1', 'Sistem Lemot', 'Lemoooottt', '1766894286_8779756758de47e5c369.png'),
+(2, 'hgrav', 'Perempuan', 'Cabang 3', 'Sistem Lemot, Sistem Error', 'Errorrr', '1766894733_f518f74434ad8ca7d836.png'),
+(3, 'Joko', 'Laki-laki', 'Cabang 2', 'Sistem Error', 'UAGdi s', '1766894842_7cdeddeabbd04bf15408.png'),
+(4, 'Pandu', 'Perempuan', 'Cabang 2', 'Data Tidak Tersimpan', 'hagfua', '1766902811_06a6e868bd06ac6f3b1b.png'),
+(5, 'Dimas', 'Laki-laki', 'Cabang 3', 'Sistem Lemot, Data Tidak Tersimpan', 'kaha', '1766902929_e34a5040f2a79187636f.png');
 
 -- --------------------------------------------------------
 
@@ -162,7 +189,6 @@ INSERT INTO `tbl_satuan` (`id_satuan`, `nama_satuan`) VALUES
 (3, 'gr'),
 (4, 'Lusin'),
 (5, 'Box'),
-(6, 'Ayam'),
 (7, 'Kg'),
 (9, 'Meter');
 
@@ -176,7 +202,7 @@ CREATE TABLE `tbl_user` (
   `id_user` int NOT NULL,
   `nama_user` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `password` varchar(15) NOT NULL,
+  `password` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `level` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -185,11 +211,18 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama_user`, `email`, `password`, `level`) VALUES
-(1, 'Askadhani A', 'admin@gmail.com', '', 1);
+(1, 'Askadhani A', 'admin@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', 1),
+(2, 'Pandu A', 'user1@gmail.com', 'bd5e5eb049f3907175f54f5a571ba6b9fdea36ab', 2);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_jual`
@@ -232,6 +265,12 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tbl_jual`
 --
 ALTER TABLE `tbl_jual`
@@ -265,7 +304,7 @@ ALTER TABLE `tbl_satuan`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
