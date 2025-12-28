@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a href="<?= base_url('public/feedback') ?>" class="nav-link">
                         
-                        <p>Form Feedback</p>
+                        <p>Feedback</p>
                     </a>
                 </li>
                 <?php
