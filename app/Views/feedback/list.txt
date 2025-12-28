@@ -1,0 +1,45 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>Data Feedback</h1>
+    </section>
+
+    <section class="content">
+        <div class="card">
+            <div class="card-body">
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Cabang</th>
+                            <th>Keluhan</th>
+                            <th>Keterangan</th>
+                            <th>Foto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1;
+                        foreach ($feedback as $f): ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= esc($f['nama']) ?></td>
+                                <td><?= esc($f['jenis_kelamin']) ?></td>
+                                <td><?= esc($f['cabang']) ?></td>
+                                <td><?= esc($f['keluhan']) ?></td>
+                                <td><?= esc($f['keterangan']) ?></td>
+                                <td>
+                                    <?php if ($f['foto']): ?>
+                                            <img src="<?= base_url('uploads/feedback/' . $f['foto']) ?>" width="80">
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </section>
+</div>

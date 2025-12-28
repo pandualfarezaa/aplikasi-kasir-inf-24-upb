@@ -11,7 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>AdminLTE 3 | Starter</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/plugins/fontawesome-free/css/all.min.css') ?>">
     <!-- Theme style -->
@@ -34,17 +35,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Feedback</a>
+                <li class="nav-item">
+                    <a href="<?= base_url('public/feedback') ?>" class="nav-link">
+                        
+                        <p>Form Feedback</p>
+                    </a>
                 </li>
+                <?php
+                if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-check"></i>';
+                    echo session()->getFlashdata('pesan');
+                    echo '</h5></div>';
+                }
+                ?>
+
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                
 
-                
-               
+
+
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -63,8 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="<?= base_url('public/AdminLTE/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
+                <img src="<?= base_url('public/AdminLTE/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Kasir</span>
             </a>
 
@@ -73,21 +87,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('public/AdminLTE/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('public/AdminLTE/dist/img/user2-160x160.jpg') ?>"
+                            class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Pandu Alfa Reza</a>
                     </div>
                 </div>
 
-                
+
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item has-treeview">
-                            <a href="<?= base_url('public/admin') ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : '' ?>">
+                            <a href="<?= base_url('public/admin') ?>"
+                                class="nav-link <?= $menu == 'dashboard' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -107,31 +123,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Data
-                                     <i class="right fas fa-angle-left"></i>
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            
+
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/produk') ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
+                                    <a href="<?= base_url('public/produk') ?>"
+                                        class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Produk</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/kategori') ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
+                                    <a href="<?= base_url('public/kategori') ?>"
+                                        class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
-                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/satuan') ?>" class="nav-link <?= $submenu == 'satuan' ? 'active' : '' ?>">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('public/satuan') ?>"
+                                        class="nav-link <?= $submenu == 'satuan' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
-                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/user') ?>" class="nav-link <?= $submenu == 'user' ? 'active' : '' ?>">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('public/user') ?>"
+                                        class="nav-link <?= $submenu == 'user' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
                                     </a>
@@ -139,7 +159,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="<?= base_url('public/admin/settings') ?>" class="nav-link <?= $menu == 'settings' ? 'active' : '' ?>">
+                            <a href="<?= base_url('public/admin/settings') ?>"
+                                class="nav-link <?= $menu == 'settings' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cogs"></i>
                                 <p> Settings
 
@@ -183,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         if ($page) {
                             echo view($page);
                         }
-                        
+
                         ?>
                         <!-- /.col-md-6 -->
                     </div>
@@ -194,7 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.content-wrapper -->
 
-        
+
 
         <!-- Main Footer -->
         <footer class="main-footer">
@@ -209,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-   <!-- REQUIRED SCRIPTS -->
+    <!-- REQUIRED SCRIPTS -->
     <script src="<?= base_url('public/AdminLTE/plugins/jquery/jquery.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
