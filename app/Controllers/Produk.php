@@ -28,30 +28,30 @@ class Produk extends BaseController
 
     public function InsertData()
     {
-        $data = ['nama_satuan' => $this->request->getPost('nama_satuan')];
-        $this->ModelSatuan->InsertData($data);
+        $data = ['nama_produk' => $this->request->getPost('nama_produk')];
+        $this->ModelProduk->InsertData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');
-        return redirect()->to(base_url('public/satuan'));
+        return redirect()->to(base_url('public/produk'));
     }
 
-    public function UpdateData($id_satuan)
+    public function UpdateData($id_produk)
     {
         $data = [
-            'id_satuan' => $id_satuan,
-            'nama_satuan' => $this->request->getPost('nama_satuan')
+            'id_produk' => $id_produk,
+            'nama_produk' => $this->request->getPost('nama_produk')
         ];
-        $this->ModelSatuan->UpdateData($data);
+        $this->ModelProduk->UpdateData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
-        return redirect()->to(base_url('public/satuan'));
+        return redirect()->to(base_url('public/produk'));
     }
 
-    public function DeleteData($id_satuan)
+    public function DeleteData($id_produk)
     {
         $data = [
-            'id_satuan' => $id_satuan
+            'id_produk' => $id_produk
         ];
-        $this->ModelSatuan->DeleteData($data);
+        $this->ModelProduk->DeleteData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus!!');
-        return redirect()->to(base_url('public/satuan'));
+        return redirect()->to(base_url('public/produk'));
     }
 }
