@@ -15,8 +15,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/plugins/fontawesome-free/css/all.min.css') ?>">
+    <!-- DataTables -->
+    <link rel="stylesheet"
+        href="<?= base_url('public/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+    <link rel="stylesheet"
+        href="<?= base_url('public/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+    <link rel="stylesheet"
+        href="<?= base_url('public/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/dist/css/adminlte.min.css') ?>">
+
+    <!-- REQUIRED SCRIPTS -->
+    <script src="<?= base_url('public/AdminLTE/plugins/jquery/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/jszip/jszip.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/pdfmake/pdfmake.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/pdfmake/vfs_fonts.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/plugins/chart.js/Chart.min.js') ?>"></script>
+    <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -37,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('public/feedback') ?>" class="nav-link">
-                        
+
                         <p>Feedback</p>
                     </a>
                 </li>
@@ -112,7 +138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('public/admin/penjualan') ?>"
-                            class="nav-link <?= $menu == 'penjualan' ? 'active' : '' ?>">
+                                class="nav-link <?= $menu == 'penjualan' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cash-register"></i>
                                 <p>Penjualan</p>
                             </a>
@@ -229,10 +255,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <script src="<?= base_url('public/AdminLTE/plugins/jquery/jquery.min.js') ?>"></script>
-    <script src="<?= base_url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-    <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
+
 
 </body>
 

@@ -21,7 +21,7 @@
                 echo '</h5></div>';
             }
             ?>
-            <table class="table table-bordered">
+            <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr class="text-center">
                         <th width="50px">No</th>
@@ -39,8 +39,8 @@
                     <?php $no = 1;
                     foreach ($produk as $key => $value) { ?>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td  class="text-center"><?= $value['kode_produk'] ?></td>
+                            <td class="text-center"><?= $no++ ?></td>
+                            <td class="text-center"><?= $value['kode_produk'] ?></td>
                             <td><?= $value['nama_produk'] ?></td>
                             <td class="text-center"><?= $value['nama_kategori'] ?></td>
                             <td class="text-center"><?= $value['nama_satuan'] ?></td>
@@ -64,3 +64,17 @@
     </div>
     <!-- /.card -->
 </div>
+
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": false,
+            "paging": true,
+            "info": true,
+            "ordering": false,
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
+</script>
