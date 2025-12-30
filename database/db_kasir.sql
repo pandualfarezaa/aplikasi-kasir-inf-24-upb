@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 28, 2025 at 06:28 AM
+-- Generation Time: Dec 30, 2025 at 02:03 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -94,7 +94,7 @@ CREATE TABLE `tbl_produk` (
   `id_produk` int NOT NULL,
   `kode_produk` varchar(25) DEFAULT NULL,
   `nama_produk` varchar(150) DEFAULT NULL,
-  `id_katerogi` int DEFAULT NULL,
+  `id_kategori` int DEFAULT NULL,
   `id_satuan` int DEFAULT NULL,
   `harga_beli` int DEFAULT NULL,
   `harga_jual` int DEFAULT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `tbl_produk` (
 -- Dumping data for table `tbl_produk`
 --
 
-INSERT INTO `tbl_produk` (`id_produk`, `kode_produk`, `nama_produk`, `id_katerogi`, `id_satuan`, `harga_beli`, `harga_jual`, `stok`) VALUES
+INSERT INTO `tbl_produk` (`id_produk`, `kode_produk`, `nama_produk`, `id_kategori`, `id_satuan`, `harga_beli`, `harga_jual`, `stok`) VALUES
 (1, 'P001', 'Indomie Goreng\r\n', 1, 1, 2500, 3000, 50),
 (2, 'P002', 'Indomie Kuah Soto\r\n', 1, 1, 2500, 3000, 40),
 (3, 'P003', 'Indomie Kari Ayam\r\n', 1, 1, 2500, 3000, 45),
