@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 30, 2025 at 02:03 PM
+-- Generation Time: Dec 30, 2025 at 02:25 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -82,7 +82,12 @@ CREATE TABLE `tbl_kategori` (
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'Makanan'),
-(2, 'Minuman');
+(2, 'Minuman'),
+(3, 'Roti'),
+(4, 'Snack'),
+(5, 'Sembako'),
+(6, 'Kebersihan Badan'),
+(7, 'Rumah Tangga');
 
 -- --------------------------------------------------------
 
@@ -280,7 +285,7 @@ ALTER TABLE `tbl_jual`
 -- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_produk`
