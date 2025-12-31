@@ -43,6 +43,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/plugins/chart.js/Chart.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
+
+    <script src="<?= base_url('public/autoNumeric/src/autoNumeric.js') ?>"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -227,8 +229,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Isi Konten -->
                         <?php
                         if ($page) {
-                            echo view($page);
-                        }
+                            echo view($page, get_defined_vars());
+}
 
                         ?>
                         <!-- /.col-md-6 -->
