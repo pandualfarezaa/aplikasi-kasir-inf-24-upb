@@ -21,6 +21,19 @@
                 echo '</h5></div>';
             }
             ?>
+
+            <?php 
+            $errors = session()->getFlashdata('errors');
+            if (!empty($errors)) { ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <h4>Periksa Lagi Entry Form !!</h4>
+                    <ul>
+                        <?php foreach ($errors as $key => $error) { ?>
+                            <li><?= esc($error) ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr class="text-center">
@@ -75,57 +88,59 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?php echo form_open(base_url('public/Produk/InsertData')) ?>
+            <?php echo form_open(base_url('public/produk/InsertData')) ?>
             <div class="modal-body">
 
                 <div class="form-group">
                     <label for="">Kode Produk</label>
-                    <input name="kode_produk" class="form-control" placeholder="Kode Produk" required>
+                    <input name="kode_produk" class="form-control" value="<?= old('kode_produk')?>" placeholder="Kode Produk" required>
                 </div>
                 <div class="form-group">
                     <label for="">Nama Produk</label>
-                    <input name="nama_produk" class="form-control" placeholder="Nama Produk" required>
+                    <input name="nama_produk" class="form-control" value="<?= old('nama_produk')?>" placeholder="Nama Produk" required>
                 </div>
                 <div class="form-group">
                     <label for="">Kategori</label>
                     <select name="id_kategori" class="form-control">
-                        <option value="">--Pilih Kategori--</option>
+                        <option value="" disabled selected>--Pilih Kategori--</option>
                         <?php foreach ($kategori as $key => $value) { ?>
                            <option value="<?= $value['id_kategori'] ?>"><?= $value['nama_kategori'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                      <div class="form-group">
+                <div class="form-group">
                     <label for="">Satuan</label>
                     <select name="id_satuan" class="form-control">
                         <option value="">--Pilih Satuan--</option>
                         <?php foreach ($satuan as $key => $value) { ?>
-                           <option value="<?= $value['id_satuan'] ?>"><?= $value['nama_satuan'] ?></option> # code...
+                           <option value="<?= $value['id_satuan'] ?>"><?= $value['nama_satuan'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
 
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="">Harga Beli</label>
                     <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">Rp.</span>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp.</span>
+                        </div>
+                    <input id="harga_beli" name="harga_beli" value="<?= old('harga_beli') ?>" class="form-control" placeholder="Harga Beli" required>
                     </div>
-                    <input name="harga_beli" class="form-control" placeholder="Harga Beli" required>
                 </div>
 
                  <div class="form-group">
                     <label for="">Harga Jual</label>
                     <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">Rp.</span>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rp.</span>
+                        </div>
+                    <input id="harga_jual" name="harga_jual" value="<?= old('harga_jual') ?>" class="form-control" placeholder="Harga Jual" required>
                     </div>
-                    <input name="harga_jual" class="form-control" placeholder="Harga Jual" required>
                 </div>
 
                 <div class="form-group">
                     <label for="">Stok</label>
-                    <input name="stok" class="form-control" placeholder="Stok" required>
+                    <input name="stok" type="number" value="<?= old('stok') ?>" class="form-control" placeholder="Stok" required>
                 </div>
 
 
@@ -155,15 +170,15 @@
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     
         
-     });
-
-     new AutoNumeric('#harga_jual', { 
-        digitGroupSeparator        : ',',
-        decimalPlaces: 0,
-     });
+    });
 
     new AutoNumeric('#harga_beli', { 
-        digitGroupSeparator        : ',',
+        digitGroupSeparator: ',',
         decimalPlaces: 0,
-     });
+    });
+
+    new AutoNumeric('#harga_jual', { 
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+    });
 </script>

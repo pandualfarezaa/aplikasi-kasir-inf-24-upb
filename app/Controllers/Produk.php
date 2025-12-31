@@ -36,30 +36,47 @@ class Produk extends BaseController
 
     public function InsertData()
     {
-        $data = ['nama_produk' => $this->request->getPost('nama_produk')];
-        $this->ModelProduk->InsertData($data);
-        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');
-        return redirect()->to(base_url('public/produk'));
+        if ($this->validate([
+            'kode_produk' => [
+                'label' => 'Kode Produk / Barcode',
+                'rules' => 'is_unique[tbl_produk.kode_produk]',
+                'errors' => [
+                    'is_unique' => '{field} Sudah Ada, Masukkan Kode Lain!!',
+                ]
+            ],
+            'id_satuan' => [
+                'label' => 'Satuan',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Belum Dipilih !!',
+                ]
+            ],  'id_kategori' => [
+                'label' => 'Kategori',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} Belum Dipilih !!',
+                ]
+            ]
+        ])) {
+            $harga_beli = str_replace(",","", $this->request->getPost('harga_beli'));
+            $harga_jual = str_replace(",", "", $this->request->getPost('harga_jual'));
+            $data = [
+                'kode_produk' => $this->request->getPost('kode_produk'),
+                'nama_produk' => $this->request->getPost('nama_produk'),
+                'id_kategori' => $this->request->getPost('id_kategori'),
+                'id_satuan' => $this->request->getPost('id_satuan'),
+                'harga_beli' => $harga_beli,
+                'harga_jual' => $harga_jual,
+                'stok' => $this->request->getPost('stok'),
+            ];
+            $this->ModelProduk->InsertData($data);
+            session()->setFlashdata('pesan', 'Data Berhasil Di Tambahkan !!');
+            return redirect()->to(base_url('public/produk'));
+        }else {
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('public/produk'))->withInput()->with('validation', $this->validator);
+        }
     }
 
-    public function UpdateData($id_produk)
-    {
-        $data = [
-            'id_produk' => $id_produk,
-            'nama_produk' => $this->request->getPost('nama_produk')
-        ];
-        $this->ModelProduk->UpdateData($data);
-        session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
-        return redirect()->to(base_url('public/produk'));
-    }
-
-    public function DeleteData($id_produk)
-    {
-        $data = [
-            'id_produk' => $id_produk
-        ];
-        $this->ModelProduk->DeleteData($data);
-        session()->setFlashdata('pesan', 'Data Berhasil Dihapus!!');
-        return redirect()->to(base_url('public/produk'));
-    }
+    
 }

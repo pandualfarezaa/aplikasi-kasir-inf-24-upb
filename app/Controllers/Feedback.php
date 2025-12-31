@@ -37,7 +37,7 @@ class Feedback extends BaseController
             'foto' => $namaFoto
         ]);
 
-        session()->setFlashdata('pesan', 'Feedback Berhasil Dikirim!!');
+        session()->setFlashdata('notif', 'Feedback Berhasil Dikirim!!');
         return redirect()->to(base_url('public/admin'));
     }
 

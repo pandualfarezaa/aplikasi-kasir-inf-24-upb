@@ -50,6 +50,7 @@ $routes->post('user/UpdateData/(:num)', 'User::UpdateData/$1');
 $routes->get('user/delete-data/(:num)', 'User::DeleteData/$1');
 $routes->get('/feedback', 'Feedback::index');
 $routes->post('feedback/simpan', 'Feedback::simpan');
+$routes->post('produk/InsertData', 'Produk::InsertData');
 
 
 

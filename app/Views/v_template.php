@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('public/AdminLTE/plugins/chart.js/Chart.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
 
-    <script src="<?= base_url('public/autoNumeric/src/autoNumeric.js') ?>"></script>
+    <script src="<?= base_url('public/autoNumeric/src/AutoNumeric.js') ?>"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -70,11 +70,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                 </li>
                 <?php
-                if (session()->getFlashdata('pesan')) {
+                if (session()->getFlashdata('notif')) {
                     echo '<div class="alert alert-success alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   <h5><i class="icon fas fa-check"></i>';
-                    echo session()->getFlashdata('pesan');
+                    echo session()->getFlashdata('notif');
                     echo '</h5></div>';
                 }
                 ?>
@@ -115,11 +115,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('public/AdminLTE/dist/img/user2-160x160.jpg') ?>"
+                        <img src="<?= base_url('public/AdminLTE/dist/img/maskamal.jpg') ?>"
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Pandu Alfa Reza</a>
+                        <a href="#" class="d-block" style="font-family: verdana:">Muhammad Chusen Kamal</a>
                     </div>
                 </div>
 
@@ -158,28 +158,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="<?= base_url('public/produk') ?>"
                                         class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Produk</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('public/kategori') ?>"
                                         class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('public/satuan') ?>"
                                         class="nav-link <?= $submenu == 'satuan' ? 'active' : '' ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('public/user') ?>"
                                         class="nav-link <?= $submenu == 'user' ? 'active' : '' ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>User</p>
                                     </a>
                                 </li>
@@ -189,9 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="<?= base_url('public/admin/settings') ?>"
                                 class="nav-link <?= $menu == 'settings' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cogs"></i>
-                                <p> Settings
-
-                                </p>
+                                <p> Settings</p>
                             </a>
                         </li>
                     </ul>
@@ -250,9 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="float-right d-none d-sm-inline">
                 Anything you want
             </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
+
         </footer>
     </div>
     <!-- ./wrapper -->
