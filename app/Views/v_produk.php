@@ -65,6 +65,83 @@
     <!-- /.card -->
 </div>
 
+<!-- Modal Add Data -->
+<div class="modal fade" id="add-data">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Data <?= $subjudul ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php echo form_open(base_url('public/Produk/InsertData')) ?>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="">Kode Produk</label>
+                    <input name="kode_produk" class="form-control" placeholder="Kode Produk" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Nama Produk</label>
+                    <input name="nama_produk" class="form-control" placeholder="Nama Produk" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Kategori</label>
+                    <select name="id_kategori" class="form-control">
+                        <option value="">--Pilih Kategori--</option>
+                        <?php foreach ($kategori as $key => $value) { ?>
+                           <option value="<?= $value['id_kategori'] ?>"><?= $value['nama_kategori'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                      <div class="form-group">
+                    <label for="">Satuan</label>
+                    <select name="id_satuan" class="form-control">
+                        <option value="">--Pilih Satuan--</option>
+                        <?php foreach ($satuan as $key => $value) { ?>
+                           <option value="<?= $value['id_satuan'] ?>"><?= $value['nama_satuan'] ?></option> # code...
+                        <?php } ?>
+                    </select>
+                </div>
+
+                 <div class="form-group">
+                    <label for="">Harga Beli</label>
+                    <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Rp.</span>
+                    </div>
+                    <input name="harga_beli" class="form-control" placeholder="Harga Beli" required>
+                </div>
+
+                 <div class="form-group">
+                    <label for="">Harga Jual</label>
+                    <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Rp.</span>
+                    </div>
+                    <input name="harga_jual" class="form-control" placeholder="Harga Jual" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Stok</label>
+                    <input name="stok" class="form-control" placeholder="Stok" required>
+                </div>
+
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-flat">Save</button>
+            </div>
+            <?php echo form_close() ?>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 
 <script>
     $(function () {
@@ -76,5 +153,17 @@
             "info": true,
             "ordering": false,
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
+    
+        
+     });
+
+     new AutoNumeric('#harga_jual', { 
+        digitGroupSeparator        : ',',
+        decimalPlaces: 0,
+     });
+
+    new AutoNumeric('#harga_beli', { 
+        digitGroupSeparator        : ',',
+        decimalPlaces: 0,
+     });
 </script>
