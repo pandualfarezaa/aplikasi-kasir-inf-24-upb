@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 30, 2025 at 02:25 PM
+-- Generation Time: Jan 01, 2026 at 12:14 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -46,7 +46,8 @@ INSERT INTO `feedback` (`id`, `nama`, `jenis_kelamin`, `cabang`, `keluhan`, `ket
 (2, 'hgrav', 'Perempuan', 'Cabang 3', 'Sistem Lemot, Sistem Error', 'Errorrr', '1766894733_f518f74434ad8ca7d836.png'),
 (3, 'Joko', 'Laki-laki', 'Cabang 2', 'Sistem Error', 'UAGdi s', '1766894842_7cdeddeabbd04bf15408.png'),
 (4, 'Pandu', 'Perempuan', 'Cabang 2', 'Data Tidak Tersimpan', 'hagfua', '1766902811_06a6e868bd06ac6f3b1b.png'),
-(5, 'Dimas', 'Laki-laki', 'Cabang 3', 'Sistem Lemot, Data Tidak Tersimpan', 'kaha', '1766902929_e34a5040f2a79187636f.png');
+(5, 'Dimas', 'Laki-laki', 'Cabang 3', 'Sistem Lemot, Data Tidak Tersimpan', 'kaha', '1766902929_e34a5040f2a79187636f.png'),
+(6, 'Lanjar', 'Perempuan', 'Cabang 2', 'Sistem Error, Data Tidak Tersimpan', 'hewrbuavw', '1767252323_05302ed670b8d65b9608.jpg');
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,11 @@ INSERT INTO `tbl_produk` (`id_produk`, `kode_produk`, `nama_produk`, `id_kategor
 (43, 'P043', 'Sapu Lidi\r\n', 7, 1, 5600, 7000, 35),
 (44, 'P044', 'Ember Plastik 8L\r\n', 7, 1, 9600, 12000, 20),
 (45, 'P045', 'Korek Api Gas\r\n', 7, 1, 400, 500, 100),
-(46, 'P046', 'Lilin Darurat\r\n', 7, 1, 4000, 5000, 30);
+(46, 'P046', 'Lilin Darurat\r\n', 7, 1, 4000, 5000, 30),
+(47, 'P047', 'Dodol', 1, 5, 12000, 15000, 10),
+(48, 'P048', 'Aqua Botol 1L', 2, 1, 5000, 7000, 5),
+(49, 'P049', 'Nescafe Ice Black', 2, 1, 6000, 7500, 8),
+(50, 'P050', 'Garuda Rosta Pedas 90gr', 1, 1, 9000, 10000, 13);
 
 -- --------------------------------------------------------
 
@@ -273,7 +278,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_jual`
@@ -291,7 +296,7 @@ ALTER TABLE `tbl_kategori`
 -- AUTO_INCREMENT for table `tbl_produk`
 --
 ALTER TABLE `tbl_produk`
-  MODIFY `id_produk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_produk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `tbl_rinci_jual`
