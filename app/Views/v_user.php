@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="card card-olive">
+    <div class="card card-lightblue card-light">
         <div class="card-header">
             <h3 class="card-title"><?= $subjudul ?></h3>
 
@@ -26,6 +26,7 @@
                     <tr class="text-center">
                         <th width="50px">No</th>
                         <th>Nama User</th>
+                        <th>Foto User</th>
                         <th>Email</th>
                         <th>Password</th>
                         <th>Level</th>
@@ -38,6 +39,15 @@
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $value['nama_user'] ?></td>
+                            <td class="text-center">
+                                <?php if ($value['foto']): ?>
+                                    <img src="<?= base_url('public/uploads/user/' . $value['foto']) ?>" width="50" height="50"
+                                        style="object-fit: cover; border-radius: 50%;">
+                                <?php else: ?>
+                                    <span class="text-muted">No Image</span>
+                                <?php endif; ?>
+                            </td>
+
                             <td><?= $value['email'] ?></td>
                             <td class="text-center"><?= $value['password'] ?></td>
                             <td class="text-center"><?php
@@ -74,13 +84,18 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?php echo form_open(base_url('public/user/InsertData')) ?>
+            <?php echo form_open_multipart(base_url('public/user/InsertData')) ?>
             <div class="modal-body">
 
                 <div class="form-group">
                     <label for="">Nama User</label>
                     <input name="nama_user" class="form-control" placeholder="Nama User" required>
                 </div>
+                <div class="form-group">
+                    <label>Foto User</label>
+                    <input type="file" name="foto" class="form-control" accept="image/*" required>
+                </div>
+
                 <div class="form-group">
                     <label for="">Email</label>
                     <input name="email" class="form-control" placeholder="Email" required>
@@ -126,15 +141,18 @@
 
                     <div class="form-group">
                         <label for="">Nama User</label>
-                        <input name="nama_user" class="form-control"value="<?= $value['nama_user'] ?>" placeholder="Nama User" required>
+                        <input name="nama_user" class="form-control" value="<?= $value['nama_user'] ?>"
+                            placeholder="Nama User" required>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input name="email" class="form-control"value="<?= $value['email'] ?>" placeholder="Email" required>
+                        <input name="email" class="form-control" value="<?= $value['email'] ?>" placeholder="Email"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input name="password" class="form-control"value="<?= $value['password'] ?>" placeholder="Password" readonly>
+                        <input name="password" class="form-control" value="<?= $value['password'] ?>" placeholder="Password"
+                            readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Level</label>

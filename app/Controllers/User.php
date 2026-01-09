@@ -28,11 +28,27 @@ class User extends BaseController
 
     public function InsertData()
     {
+        $fileFoto = $this->request->getFile('foto');
+
+        // default
+        $namaFoto = 'default.jpeg';
+
+        if ($fileFoto !== null && $fileFoto->isValid() && !$fileFoto->hasMoved()) {
+            $ext = $fileFoto->getExtension();
+
+            // validasi tipe file
+            if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
+                $namaFoto = $fileFoto->getRandomName();
+                $fileFoto->move('uploads/user', $namaFoto);
+            }
+        }
+
         $data = [
             'nama_user' => $this->request->getPost('nama_user'),
             'email' => $this->request->getPost('email'),
             'password' => sha1($this->request->getPost('password')),
             'level' => $this->request->getPost('level'),
+            'foto' => $namaFoto
         ];
         $this->ModelUser->InsertData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');

@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>My Kasir</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -31,8 +31,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- DataTables  & Plugins -->
     <script src="<?= base_url('public/AdminLTE/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
-    <script src="<?= base_url('public/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
-    <script src="<?= base_url('public/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+    <script
+        src="<?= base_url('public/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+    <script
+        src="<?= base_url('public/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
     <script src="<?= base_url('public/AdminLTE/plugins/jszip/jszip.min.js') ?>"></script>
@@ -48,10 +50,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper wrapper-primary">
+    <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-lightblue navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-warning navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -67,6 +69,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="<?= base_url('public/feedback') ?>" class="nav-link">
 
                         <strong>Feedback</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('public/kuesioner') ?>" class="nav-link">
+
+                        <strong>Matching Jurusan</strong>
                     </a>
                 </li>
                 <?php
@@ -93,8 +101,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                    <a class="nav-link" href="<?= base_url('public/home/LogOut') ?>">
+                        <i class="fas fa-sign-out-alt"></i> Logout
                     </a>
                 </li>
             </ul>
@@ -102,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-warning elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="<?= base_url('public/AdminLTE/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo"
@@ -115,13 +123,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('public/AdminLTE/dist/img/maskamal.jpg') ?>"
-                            class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('public/uploads/user/' . session()->get('foto')) ?>"
+                            class="img-circle elevation-2" alt="User Image"
+                            style="width:40px; height:40px; object-fit:cover;">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block" style="font-family: verdana:">Muhammad Chusen Kamal</a>
+                        <a href="#" class="d-block"><?= session()->get('nama_user') ?></a>
                     </div>
                 </div>
+
 
 
 
@@ -139,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="<?= base_url('public/admin/penjualan') ?>"
+                            <a href="<?= base_url('public/penjualan') ?>"
                                 class="nav-link <?= $menu == 'penjualan' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cash-register"></i>
                                 <p>Penjualan</p>
@@ -228,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <?php
                         if ($page) {
                             echo view($page, get_defined_vars());
-}
+                        }
 
                         ?>
                         <!-- /.col-md-6 -->

@@ -33,12 +33,13 @@ $routes->setAutoRoute(true);
 
 $routes->get('/', 'Home::index');
 $routes->get('/produk', 'Produk::index');
+$routes->get('/home', 'Home::index');
 $routes->get('/satuan', 'Satuan::index');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/kategori', 'Kategori::index');
 $routes->get('/user', 'User::index');
 $routes->get('admin/settings', 'Admin::Settings');
-$routes->get('admin/penjualan', 'Admin::Penjualan');
+$routes->get('/penjualan', 'Penjualan::index');
 $routes->post('satuan/InsertData', 'Satuan::InsertData');
 $routes->post('satuan/UpdateData/(:num)', 'Satuan::UpdateData/$1');
 $routes->get('satuan/delete-data/(:num)', 'Satuan::DeleteData/$1');
@@ -53,6 +54,9 @@ $routes->post('feedback/simpan', 'Feedback::simpan');
 $routes->post('produk/InsertData', 'Produk::InsertData');
 $routes->post('produk/UpdateData/(:num)', 'Produk::UpdateData/$1');
 $routes->get('produk/delete-data/(:num)', 'Produk::DeleteData/$1');
+$routes->post('home/CekLogin', 'Home::CekLogin');
+$routes->get('home/LogOut', 'Home::LogOut');
+
 
 
 
