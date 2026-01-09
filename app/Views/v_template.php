@@ -125,10 +125,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="image">
                         <img src="<?= base_url('public/uploads/user/' . session()->get('foto')) ?>"
                             class="img-circle elevation-2" alt="User Image"
-                            style="width:40px; height:40px; object-fit:cover;">
+                            style="width:45px; height:45px; object-fit:cover;">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= session()->get('nama_user') ?></a>
+                        <a href="#" class="d-block" style="font-size: 1.5rem; font-weight: 600;"><?= session()->get('nama_user') ?></a>
                     </div>
                 </div>
 

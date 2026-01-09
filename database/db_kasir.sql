@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 01, 2026 at 12:14 PM
+-- Generation Time: Jan 09, 2026 at 12:35 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -211,6 +211,7 @@ INSERT INTO `tbl_satuan` (`id_satuan`, `nama_satuan`) VALUES
 CREATE TABLE `tbl_user` (
   `id_user` int NOT NULL,
   `nama_user` varchar(40) NOT NULL,
+  `foto` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `email` varchar(40) NOT NULL,
   `password` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `level` int NOT NULL
@@ -220,9 +221,11 @@ CREATE TABLE `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `nama_user`, `email`, `password`, `level`) VALUES
-(1, 'Askadhani A', 'admin@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', 1),
-(2, 'Pandu A', 'user1@gmail.com', 'bd5e5eb049f3907175f54f5a571ba6b9fdea36ab', 2);
+INSERT INTO `tbl_user` (`id_user`, `nama_user`, `foto`, `email`, `password`, `level`) VALUES
+(11, 'Askadhani A', '1767924571_f79243c9696742ba0db7.jpeg', 'admin@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1),
+(12, 'Pandu A', '1767924639_09423590d25811b6dff4.jpg', 'user1@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2),
+(13, 'Lanjar A', '1767924736_0bd95cb09000b67bb6fb.jpg', 'user2@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2),
+(15, 'Kamal Chusen', '1767925396_a52f7318662d1eb29285.jpg', 'admin2@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1);
 
 --
 -- Indexes for dumped tables
@@ -314,7 +317,7 @@ ALTER TABLE `tbl_satuan`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
