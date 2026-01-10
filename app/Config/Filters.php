@@ -25,9 +25,10 @@ class Filters extends BaseFilters
      * or [filter_name => [classname1, classname2, ...]]
      */
     public array $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
+        'csrf'          => \CodeIgniter\Filters\CSRF::class,
+        'toolbar'       => \CodeIgniter\Filters\DebugToolbar::class,
+        'honeypot'      => \CodeIgniter\Filters\Honeypot::class,
+        'auth'          => \App\Filters\AuthFilter::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'cors'          => Cors::class,
@@ -72,9 +73,7 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            'auth' => ['except' => ['public/home', 'public/home/*']],
         ],
         'after' => [
             // 'honeypot',

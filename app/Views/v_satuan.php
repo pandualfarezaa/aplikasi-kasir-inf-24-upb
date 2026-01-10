@@ -61,7 +61,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <?php echo form_open(base_url('public/satuan/InsertData')) ?>
+      <?php echo form_open(base_url('public/admin/satuan/InsertData')) ?>
       <div class="modal-body">
 
         <div class="form-group">
@@ -94,7 +94,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <?php echo form_open(base_url('public/satuan/UpdateData/'. $value['id_satuan'])) ?>
+        <?php echo form_open(base_url('public/admin/satuan/UpdateData/'. $value['id_satuan'])) ?>
         <div class="modal-body">
 
           <div class="form-group">
@@ -134,7 +134,7 @@
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-          <a href="<?= base_url('public/satuan/delete-data/'. $value['id_satuan']) ?>" class="btn btn-danger btn-flat">Delete</a>
+          <a href="<?= base_url('public/admin/satuan/delete-data/'. $value['id_satuan']) ?>" class="btn btn-danger btn-flat">Delete</a>
         </div>
       </div>
       <!-- /.modal-content -->

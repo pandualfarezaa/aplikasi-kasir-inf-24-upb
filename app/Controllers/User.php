@@ -52,7 +52,7 @@ class User extends BaseController
         ];
         $this->ModelUser->InsertData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');
-        return redirect()->to(base_url('public/user'));
+        return redirect()->to(base_url('public/admin/user'));
     }
 
     public function UpdateData($id_user)
@@ -65,7 +65,7 @@ class User extends BaseController
         ];
         $this->ModelUser->UpdateData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
-        return redirect()->to(base_url('public/user'));
+        return redirect()->to(base_url('public/admin/user'));
     }
 
     public function DeleteData($id_user)
@@ -75,6 +75,6 @@ class User extends BaseController
         ];
         $this->ModelUser->DeleteData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus!!');
-        return redirect()->to(base_url('public/user'));
+        return redirect()->to(base_url('public/admin/user'));
     }
 }

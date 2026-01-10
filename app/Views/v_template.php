@@ -166,28 +166,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/produk') ?>"
+                                    <a href="<?= base_url('public/admin/produk') ?>"
                                         class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Produk</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/kategori') ?>"
+                                    <a href="<?= base_url('public/admin/kategori') ?>"
                                         class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/satuan') ?>"
+                                    <a href="<?= base_url('public/admin/satuan') ?>"
                                         class="nav-link <?= $submenu == 'satuan' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/user') ?>"
+                                    <a href="<?= base_url('public/admin/user') ?>"
                                         class="nav-link <?= $submenu == 'user' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>User</p>

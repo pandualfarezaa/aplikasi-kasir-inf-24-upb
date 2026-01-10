@@ -46,6 +46,9 @@ class Home extends BaseController
                 session()->set('nama_user', $cek_login['nama_user']);
                 session()->set('foto', $cek_login['foto']);
                 session()->set('level', $cek_login['level']);
+                session()->set('CekLogin', true);
+                
+
                 if ($cek_login['level'] == 1) {
                     return redirect()->to(base_url('public/admin'));
                 } else {
@@ -64,11 +67,9 @@ class Home extends BaseController
 
     public function LogOut()
     {
-        session()->remove('id_user');
-        session()->remove('nama_user');
-        session()->remove('foto');
-        session()->remove('level');
-        session()->setFlashdata('pesan', 'Anda Berhasil Logout !!');
-        return redirect()->to(base_url('public/home'));
+        session()->destroy();
+        return redirect()->to(base_url('public/home'))
+            ->with('pesan', 'Anda Berhasil Logout !!');
     }
+
 }

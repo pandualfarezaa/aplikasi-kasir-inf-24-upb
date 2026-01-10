@@ -84,7 +84,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?php echo form_open_multipart(base_url('public/user/InsertData')) ?>
+            <?php echo form_open_multipart(base_url('public/admin/user/InsertData')) ?>
             <div class="modal-body">
 
                 <div class="form-group">
@@ -136,7 +136,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <?php echo form_open(base_url('public/user/UpdateData/' . $value['id_user'])) ?>
+                <?php echo form_open(base_url('public/admin/user/UpdateData/' . $value['id_user'])) ?>
                 <div class="modal-body">
 
                     <div class="form-group">
@@ -193,7 +193,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('public/user/delete-data/' . $value['id_user']) ?>"
+                    <a href="<?= base_url('public/admin/user/delete-data/' . $value['id_user']) ?>"
                         class="btn btn-danger btn-flat">Delete</a>
                 </div>
             </div>
