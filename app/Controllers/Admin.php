@@ -17,18 +17,7 @@ class Admin extends BaseController
         ];
         return view('v_template', $data);
     }
-    public function Settings()
-    {
-        $data = [
-            'judul' => 'Settings',
-            'subjudul' => '',
-            'menu' => 'settings',
-            'submenu' => '',
-            'page' => 'v_settings',
-        ];
-        return view('v_template', $data);
-
-    }
+    
 }
 
    

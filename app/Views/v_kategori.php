@@ -63,7 +63,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <?php echo form_open(base_url('public/admin/kategori/InsertData')) ?>
+            <?php echo form_open(base_url('public/kategori/InsertData')) ?>
             <div class="modal-body">
 
                 <div class="form-group">
@@ -96,7 +96,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <?php echo form_open(base_url('public/admin/kategori/UpdateData/' . $value['id_kategori'])) ?>
+                <?php echo form_open(base_url('public/kategori/UpdateData/' . $value['id_kategori'])) ?>
                 <div class="modal-body">
 
                     <div class="form-group">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('public/admin/kategori/delete-data/' . $value['id_kategori']) ?>"
+                    <a href="<?= base_url('public/kategori/delete-data/' . $value['id_kategori']) ?>"
                         class="btn btn-danger btn-flat">Delete</a>
                 </div>
             </div>

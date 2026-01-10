@@ -31,7 +31,7 @@ class Satuan extends BaseController
         $data = ['nama_satuan' => $this->request->getPost('nama_satuan')];
         $this->ModelSatuan->InsertData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!!');
-        return redirect()->to(base_url('public/admin/satuan'));
+        return redirect()->to(base_url('public/satuan'));
     }
 
     public function UpdateData($id_satuan)
@@ -42,7 +42,7 @@ class Satuan extends BaseController
         ];
         $this->ModelSatuan->UpdateData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
-        return redirect()->to(base_url('public/admin/satuan'));
+        return redirect()->to(base_url('public/satuan'));
     }
 
     public function DeleteData($id_satuan)
@@ -52,6 +52,6 @@ class Satuan extends BaseController
         ];
         $this->ModelSatuan->DeleteData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus!!');
-        return redirect()->to(base_url('public/admin/satuan'));
+        return redirect()->to(base_url('public/satuan'));
     }
 }

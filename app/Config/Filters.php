@@ -29,8 +29,8 @@ class Filters extends BaseFilters
         'toolbar'       => \CodeIgniter\Filters\DebugToolbar::class,
         'honeypot'      => \CodeIgniter\Filters\Honeypot::class,
         'auth'          => \App\Filters\AuthFilter::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
+        'invalidchars'  => \CodeIgniter\Filters\InvalidChars::class,
+        'secureheaders' => \CodeIgniter\Filters\SecureHeaders::class,
         'cors'          => Cors::class,
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
@@ -71,11 +71,12 @@ class Filters extends BaseFilters
      *     after: array<string, array{except: list<string>|string}>|list<string>
      * }
      */
-    public array $globals = [
+    /**public array $globals = [
         'before' => [
-            'auth' => ['except' => ['public/home', 'public/home/*']],
+            'auth' => ['except' => ['public/home', 'public/home/*', 'auth/*']],
         ],
         'after' => [
+            'toolbar',
             // 'honeypot',
             // 'secureheaders',
         ],

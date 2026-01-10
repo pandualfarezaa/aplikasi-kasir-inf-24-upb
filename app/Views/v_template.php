@@ -71,12 +71,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <strong>Feedback</strong>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('public/kuesioner') ?>" class="nav-link">
 
-                        <strong>Matching Jurusan</strong>
-                    </a>
-                </li>
                 <?php
                 if (session()->getFlashdata('notif')) {
                     echo '<div class="alert alert-success alert-dismissible">
@@ -86,6 +81,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     echo '</h5></div>';
                 }
                 ?>
+
+                <?php
+                if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-check"></i>';
+                    echo session()->getFlashdata('pesan');
+                    echo '</h5></div>';
+                }
+                ?>
+
+
+
 
             </ul>
 
@@ -115,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="<?= base_url('public/AdminLTE/dist/img/jmk48.jpg') ?>" class="brand-link">
                 <img src="<?= base_url('public/AdminLTE/dist/img/jmk48.jpg') ?>" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Kasir JMK48</span>
+                <span href="#" class="d-block" style="font-size: 1.5rem; font-weight: 600;">Kasir JMK48</span>
             </a>
 
             <!-- Sidebar -->
@@ -128,7 +136,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             style="width:45px; height:45px; object-fit:cover;">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block" style="font-size: 1.5rem; font-weight: 600;"><?= session()->get('nama_user') ?></a>
+                        <a href="#" class="d-block"
+                            style="font-size: 1.5rem; font-weight: 600;"><?= session()->get('nama_user') ?></a>
                     </div>
                 </div>
 
@@ -166,28 +175,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/admin/produk') ?>"
+                                    <a href="<?= base_url('public/produk') ?>"
                                         class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Produk</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/admin/kategori') ?>"
+                                    <a href="<?= base_url('public/kategori') ?>"
                                         class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Kategori</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/admin/satuan') ?>"
+                                    <a href="<?= base_url('public/satuan') ?>"
                                         class="nav-link <?= $submenu == 'satuan' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Satuan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/admin/user') ?>"
+                                    <a href="<?= base_url('public/user') ?>"
                                         class="nav-link <?= $submenu == 'user' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>User</p>
@@ -195,13 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="<?= base_url('public/admin/settings') ?>"
-                                class="nav-link <?= $menu == 'settings' ? 'active' : '' ?>">
-                                <i class="nav-icon fas fa-cogs"></i>
-                                <p> Settings</p>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

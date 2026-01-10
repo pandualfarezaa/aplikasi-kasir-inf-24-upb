@@ -36,9 +36,10 @@ $routes->get('/home', 'Home::index');
 $routes->post('home/CekLogin', 'Home::CekLogin');
 $routes->get('home/LogOut', 'Home::LogOut');
 
-$routes->group('admin', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Admin::index');
-    $routes->get('settings', 'Admin::Settings');
+
+
+$routes->group('', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('admin', 'Admin::index');
     $routes->get('produk', 'Produk::index');
     $routes->get('satuan', 'Satuan::index');
     $routes->get('kategori', 'Kategori::index');
@@ -58,8 +59,10 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('produk/InsertData', 'Produk::InsertData');
     $routes->post('produk/UpdateData/(:num)', 'Produk::UpdateData/$1');
     $routes->get('produk/delete-data/(:num)', 'Produk::DeleteData/$1');
-
 });
+
+
+
 
 
 $routes->group('penjualan', ['filter' => 'auth'], function ($routes) {

@@ -74,10 +74,10 @@ class Produk extends BaseController
             ];
             $this->ModelProduk->InsertData($data);
             session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !!');
-            return redirect()->to(base_url('public/admin/produk'));
+            return redirect()->to(base_url('public/produk'));
         } else {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('public/admin/produk'))->withInput()->with('validation', $this->validator);
+            return redirect()->to(base_url('public/produk'))->withInput()->with('validation', $this->validator);
         }
     }
 
@@ -114,10 +114,10 @@ class Produk extends BaseController
             ];
             $this->ModelProduk->UpdateData($data);
             session()->setFlashdata('pesan', 'Data Berhasil Diedit!!');
-            return redirect()->to(base_url('public/admin/produk'));
+            return redirect()->to(base_url('public/produk'));
         } else {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('public/admin/produk'))->withInput()->with('validation', $this->validator);
+            return redirect()->to(base_url('public/produk'))->withInput()->with('validation', $this->validator);
         }
     }
 
@@ -128,7 +128,7 @@ class Produk extends BaseController
         ];
         $this->ModelProduk->DeleteData($data);
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus!!');
-        return redirect()->to(base_url('public/admin/produk'));
+        return redirect()->to(base_url('public/produk'));
     }
 
 
