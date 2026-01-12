@@ -14,7 +14,7 @@ class AuthFilter implements FilterInterface
         $session = session();
         if (!$session->get('logged_in')) {
             // Jika belum login, redirect ke halaman login
-            return redirect()->to('public/home')->with('error', 'Anda harus login terlebih dahulu!');
+            return redirect()->to('public/home')->with('pesan', 'Anda harus login terlebih dahulu!!');
         }
     }
 

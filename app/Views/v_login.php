@@ -53,9 +53,9 @@
                 <?php } ?>
                 <?php
                 if (session()->getFlashdata('pesan')) {
-                    echo '<div class="alert alert-success alert-dismissible">
+                    echo '<div class="alert alert-danger alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <i class="icon fas fa-check"></i>';
+                  <i class=""></i>';
                     echo session()->getFlashdata('pesan');
                     echo '</div>';
                 }

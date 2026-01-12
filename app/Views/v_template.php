@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="<?= base_url('public/AdminLTE/dist/img/jmk48.jpg') ?>" class="brand-link">
                 <img src="<?= base_url('public/AdminLTE/dist/img/jmk48.jpg') ?>" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span href="#" class="d-block" style="font-size: 1.5rem; font-weight: 600;">Kasir JMK48</span>
+                <span href="#" class="d-block text-warning" style="font-size: 1.5rem; font-weight: 600;">Kasir JMK48</span>
             </a>
 
             <!-- Sidebar -->
@@ -136,7 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             style="width:45px; height:45px; object-fit:cover;">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"
+                        <a href="#" class="d-block text-warning"
                             style="font-size: 1.5rem; font-weight: 600;"><?= session()->get('nama_user') ?></a>
                     </div>
                 </div>

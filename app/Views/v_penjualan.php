@@ -28,7 +28,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="<?= base_url('public/AdminLTE/dist/img/jmk48.jpg') ?>" class="navbar-brand">
                     <img src="<?= base_url('public/AdminLTE/dist/img/jmk48.jpg') ?>" alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light" style="font-size: 1.5rem; font-weight: 600;"> <i class="fas fa-shopping-cart text-primary"></i> <b>Penjualan</b></span>
+                    <span class="brand-text font-weight-light" style="font-size: 1.5rem; font-weight: 600;"> <i
+                            class="fas fa-shopping-cart text-primary"></i> <b>Penjualan</b></span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
@@ -146,57 +147,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0"> Top Navigation <small>Example 3.0</small></h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                                <li class="breadcrumb-item active">Top Navigation</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
-                    <div class="row">
-                        
-                        <div class="col-lg-7">
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0"></h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
+                <div class="row">
+
+                    <div class="col-lg-7">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title m-0"></h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
                                         <div class="form-group">
                                             <label>No Faktur</label>
+                                            <label class="form-control form-control-lg">122334455</label>
                                         </div>
                                     </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label>Tanggal</label>
+                                            <label class="form-control form-control-lg"><?= date('d M Y') ?></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label>Jam</label>
+                                            <label class="form-control form-control-lg"><?= date('09:00:00') ?></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label>Nama Kasir</label>
+                                            <label class="form-control form-control-lg"><?= session()->get('nama_user') ?></label>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="card-title m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.col-md-6 -->
                     </div>
-                    <!-- /.row -->
-                
+                    <div class="col-lg-5">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title m-0"></h5>
+                            </div>
+                            <div class="card-body bg-black">
+                                <h1 class="d-block display-4 text-right text-green" style="font-weight: 600;">Rp. 1,500,500-</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-md-6 -->
+                </div>
+                <!-- /.row -->
+
             </div>
             <!-- /.content -->
         </div>
@@ -229,7 +237,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
-    
+
 </body>
 
 </html>
