@@ -154,15 +154,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="col-lg-7">
                         <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title m-0"></h5>
-                            </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label>No Faktur</label>
-                                            <label class="form-control form-control-lg">122334455</label>
+                                            <label class="form-control form-control-lg text-danger">122334455</label>
                                         </div>
                                     </div>
 
@@ -183,7 +180,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label>Nama Kasir</label>
-                                            <label class="form-control form-control-lg"><?= session()->get('nama_user') ?></label>
+                                            <label class="form-control form-control-lg text-primary"><?= session()->get('nama_user') ?></label>
                                         </div>
                                     </div>
 
@@ -196,8 +193,102 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="card-header">
                                 <h5 class="card-title m-0"></h5>
                             </div>
-                            <div class="card-body bg-black">
-                                <h1 class="d-block display-4 text-right text-green" style="font-weight: 600;">Rp. 1,500,500-</h1>
+                            <div class="card-body bg-black collor-palette text-right">
+                                <label class="display-4 text-green" style="font-weight: 600;">Rp. 1,500,500-</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="card card-primary card-outline">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="input-group">
+                                            <input type="text" name="kode_produk" class="form-control" placeholder="Barcode/Kode Produk">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary btn-flat" type="button">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                                <button class="btn btn-danger btn-flat" type="button">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <input name="nama_produk" class="form-control" placeholder="Nama Produk">
+                                    </div>
+                                    <div class="col-1">
+                                        <input name="kategori" class="form-control" placeholder="Kategori">
+                                    </div>
+                                    <div class="col-1">
+                                        <input name="satuan" class="form-control" placeholder="Satuan">
+                                    </div>
+                                    <div class="col-1">
+                                        <input name="harga_jual" class="form-control" placeholder="Harga">
+                                    </div>
+                                    <div class="col-1">
+                                        <input type="number" min="1" name="qty" class="form-control" placeholder="QTY">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <button class="btn btn-flat btn-primary"><i class="fas fa-cart-plus">Add</i></button>
+                                        </div>
+                                    </div>   
+
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <button class="btn btn-flat btn-warning"><i class="fas fa-sync">Clear</i></button>    
+                                        </div>
+                                    </div>
+
+                                     <div class="row">
+                                        <div class="col-1">
+                                            <button class="btn btn-flat btn-success"><i class="fas fa-cash-register">Bayar</i></button>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Kode/Barcode</th>
+                                    <th>Nama Produk</th>
+                                    <th>Kategori</th>
+                                    <th>Harga Jual</th>
+                                    <th width="100px">Qty</th>
+                                    <th>Total Harga</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>11111</td>
+                                    <td>Sari Roti Coklat</td>
+                                    <td>Makanan</td>
+                                    <td class="text-right">Rp 15.000,</td>
+                                    <td class="text-center">2 pcs</td>
+                                    <td class="text-right">Rp 30.000,</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-flat btn-danger"> <i class="fa fa-times"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="col-lg-12">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title m-0"></h5>
+                            </div>
+                            <div class="card-body bg-black collor-palette text-center">
+                                <h1 class="text-warning">Satu Juta Lima Ratus Ribu Lima Ratus Rupiah</h1>
                             </div>
                         </div>
                     </div>
