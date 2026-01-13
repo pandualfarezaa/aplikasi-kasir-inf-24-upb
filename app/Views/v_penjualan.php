@@ -44,101 +44,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <!-- Right navbar links -->
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <!-- Messages Dropdown Menu -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="#">
-                            <i class="fas fa-comments"></i>
-                            <span class="badge badge-danger navbar-badge">3</span>
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                            <i class="fas fa-expand-arrows-alt"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <a href="#" class="dropdown-item">
-                                <!-- Message Start -->
-                                <div class="media">
-                                    <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar"
-                                        class="img-size-50 mr-3 img-circle">
-                                    <div class="media-body">
-                                        <h3 class="dropdown-item-title">
-                                            Brad Diesel
-                                            <span class="float-right text-sm text-danger"><i
-                                                    class="fas fa-star"></i></span>
-                                        </h3>
-                                        <p class="text-sm">Call me whenever you can...</p>
-                                        <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                    </div>
-                                </div>
-                                <!-- Message End -->
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <!-- Message Start -->
-                                <div class="media">
-                                    <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar"
-                                        class="img-size-50 img-circle mr-3">
-                                    <div class="media-body">
-                                        <h3 class="dropdown-item-title">
-                                            John Pierce
-                                            <span class="float-right text-sm text-muted"><i
-                                                    class="fas fa-star"></i></span>
-                                        </h3>
-                                        <p class="text-sm">I got your message bro</p>
-                                        <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                    </div>
-                                </div>
-                                <!-- Message End -->
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <!-- Message Start -->
-                                <div class="media">
-                                    <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar"
-                                        class="img-size-50 img-circle mr-3">
-                                    <div class="media-body">
-                                        <h3 class="dropdown-item-title">
-                                            Nora Silvester
-                                            <span class="float-right text-sm text-warning"><i
-                                                    class="fas fa-star"></i></span>
-                                        </h3>
-                                        <p class="text-sm">The subject goes here</p>
-                                        <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                    </div>
-                                </div>
-                                <!-- Message End -->
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                        </div>
-                    </li>
-                    <!-- Notifications Dropdown Menu -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" data-toggle="dropdown" href="#">
-                            <i class="far fa-bell"></i>
-                            <span class="badge badge-warning navbar-badge">15</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <span class="dropdown-header">15 Notifications</span>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                                <span class="float-right text-muted text-sm">3 mins</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-users mr-2"></i> 8 friend requests
-                                <span class="float-right text-muted text-sm">12 hours</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-file mr-2"></i> 3 new reports
-                                <span class="float-right text-muted text-sm">2 days</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                            <i class="fas fa-th-large"></i>
-                        </a>
+                        <?php if (session()->get('level') == '1') { ?>
+                            <a class="nav-link" href="<?= base_url('public/admin') ?>">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        <?php } else { ?>
+                            <a class="nav-link" href="<?= base_url('public/home/LogOut') ?>">
+                                <i class="fas fa-sign-out-alt"></i>Log Out
+                            </a>
+                        <?php } ?>
                     </li>
                 </ul>
             </div>
@@ -159,7 +79,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label>No Faktur</label>
-                                            <label class="form-control form-control-lg text-danger">122334455</label>
+                                            <label
+                                                class="form-control form-control-lg text-danger"><?= $no_faktur ?></label>
                                         </div>
                                     </div>
 
@@ -180,7 +101,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label>Nama Kasir</label>
-                                            <label class="form-control form-control-lg text-primary"><?= session()->get('nama_user') ?></label>
+                                            <label
+                                                class="form-control form-control-lg text-primary"><?= session()->get('nama_user') ?></label>
                                         </div>
                                     </div>
 
@@ -205,7 +127,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="row align-items-center">
                                     <div class="col-3">
                                         <div class="input-group">
-                                            <input type="text" name="kode_produk" class="form-control" placeholder="Barcode/Kode Produk">
+                                            <input type="text" name="kode_produk" class="form-control"
+                                                placeholder="Barcode/Kode Produk">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary btn-flat" type="button">
                                                     <i class="fas fa-search"></i>
@@ -234,19 +157,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                     <div class="row">
                                         <div class="col-1">
-                                            <button class="btn btn-flat btn-primary"><i class="fas fa-cart-plus">Add</i></button>
-                                        </div>
-                                    </div>   
-
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <button class="btn btn-flat btn-warning"><i class="fas fa-sync">Clear</i></button>    
+                                            <button class="btn btn-flat btn-primary"><i
+                                                    class="fas fa-cart-plus">Add</i></button>
                                         </div>
                                     </div>
 
-                                     <div class="row">
+                                    <div class="row">
                                         <div class="col-1">
-                                            <button class="btn btn-flat btn-success"><i class="fas fa-cash-register">Bayar</i></button>    
+                                            <button class="btn btn-flat btn-warning"><i
+                                                    class="fas fa-sync">Clear</i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <button class="btn btn-flat btn-success"><i
+                                                    class="fas fa-cash-register">Bayar</i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -281,7 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <div class="col-lg-12">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
