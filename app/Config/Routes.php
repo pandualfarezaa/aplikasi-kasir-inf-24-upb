@@ -74,6 +74,7 @@ $routes->group('penjualan', ['filter' => 'auth'], function ($routes) {
 
 
 
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

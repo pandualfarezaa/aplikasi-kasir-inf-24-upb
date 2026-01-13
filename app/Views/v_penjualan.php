@@ -15,8 +15,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/plugins/fontawesome-free/css/all.min.css') ?>">
+      <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="<?= base_url('public/AdminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/dist/css/adminlte.min.css') ?>">
+
+      <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="<?= base_url('public/AdminLTE/plugins/jquery/jquery.min.js') ?>"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?= base_url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <!-- SweetAlert2 -->
+    <script src="<?= base_url('public/AdminLTE/plugins/sweetalert2/sweetalert2.min.js') ?>"></script>
+    <!-- AdminLTE App -->
+    <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
+
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -127,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="row align-items-center">
                                     <div class="col-3">
                                         <div class="input-group">
-                                            <input type="text" name="kode_produk" class="form-control"
+                                            <input name="kode_produk" id="kode_produk" class="form-control"
                                                 placeholder="Barcode/Kode Produk">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary btn-flat" type="button">
@@ -143,16 +157,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <input name="nama_produk" class="form-control" placeholder="Nama Produk">
                                     </div>
                                     <div class="col-1">
-                                        <input name="kategori" class="form-control" placeholder="Kategori">
+                                        <input name="nama_kategori" class="form-control" placeholder="Kategori">
                                     </div>
                                     <div class="col-1">
-                                        <input name="satuan" class="form-control" placeholder="Satuan">
+                                        <input name="nama_satuan" class="form-control" placeholder="Satuan">
                                     </div>
                                     <div class="col-1">
                                         <input name="harga_jual" class="form-control" placeholder="Harga">
                                     </div>
                                     <div class="col-1">
-                                        <input type="number" min="1" name="qty" class="form-control" placeholder="QTY">
+                                        <input id= "qty" type="number" min="1" name="qty" class="form-control" placeholder="QTY">
                                     </div>
 
                                     <div class="row">
@@ -246,15 +260,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
 
-    <!-- jQuery -->
-    <script src="<?= base_url('public/AdminLTE/plugins/jquery/jquery.min.js') ?>"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('public/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('public/AdminLTE/dist/js/adminlte.min.js') ?>"></script>
+<script>
+    $(document).ready(function() {
+  
+  $('#kode_produk').keydown(function(e) {
+    let kode_produk = $('#kode_produk').val();
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      if (kode_produk.length == 0) {
+      Swal.fire("kodenya input dulu yh syank");
 
+      } else {
+          CekProduk();
+      }
+    }
+  });
+});
+
+function CekProduk() {
+    $.ajax({
+        type: "POST",
+        url: "<?= base_url('Penjualan/CekProduk') ?>",
+        data: {
+            kode_produk: $('#kode_produk').val(),
+        },
+        dataType: "JSON",
+        success: function(response) {
+            if (response.nama_produk == '') {
+                Swal.fire('Kode Produk Tidak Terdaftar Di Database !!!');
+            } else {
+                $('[name="nama_produk"]').val(response.nama_produk);
+                $('[name="nama_kategori"]').val(response.nama_kategori);
+                $('[name="nama_satuan"]').val(response.nama_satuan);
+                $('[name="harga_jual"]').val(response.harga_jual);
+                $('#qty').focus();
+            }
+        }
+    });
+}
+</script>
 </body>
-
 </html>

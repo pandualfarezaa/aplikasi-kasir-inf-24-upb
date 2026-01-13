@@ -6,6 +6,8 @@ use CodeIgniter\Model;
 
 class ModelPenjualan extends Model
 {
+    protected $table = 'tbl_produk'; // ⬅️ WAJIB ADA
+
     public function NoFaktur()
     {
         $tgl = date('Ymd');
@@ -14,10 +16,20 @@ class ModelPenjualan extends Model
         if ($hasil['no_urut'] > 0) {
             $tmp = $hasil['no_urut'] + 1;
             $kd = sprintf("%04s",$tmp);
-        }else {
+        } else {
             $kd = "0001";
         }
         $no_faktur = date('Ymd') . $kd;
         return $no_faktur;
+    }
+
+    public function CekProduk($kode_produk)
+    {
+        return $this->db->table('tbl_produk')
+            ->join('tbl_kategori', 'tbl_kategori.id_kategori=tbl_produk.id_kategori')
+            ->join('tbl_satuan', 'tbl_satuan.id_satuan=tbl_produk.id_satuan')
+            ->where('kode_produk', $kode_produk)
+            ->get()
+            ->getRowArray();
     }
 }
