@@ -281,7 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 function CekProduk() {
     $.ajax({
         type: "POST",
-        url: "<?= base_url('Penjualan/CekProduk') ?>",
+        url: "<?= base_url('public/penjualan/CekProduk') ?>",
         data: {
             kode_produk: $('#kode_produk').val(),
         },

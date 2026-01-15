@@ -59,6 +59,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('produk/InsertData', 'Produk::InsertData');
     $routes->post('produk/UpdateData/(:num)', 'Produk::UpdateData/$1');
     $routes->get('produk/delete-data/(:num)', 'Produk::DeleteData/$1');
+    $routes->post('penjualan/CekProduk', 'Penjualan::CekProduk');
 });
 
 
@@ -67,6 +68,8 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
 
 $routes->group('penjualan', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'Penjualan::index');
+    $routes->get('/penjualan', 'Penjualan::index');
+
 });
 
 
