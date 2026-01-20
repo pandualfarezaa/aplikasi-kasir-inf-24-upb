@@ -4,6 +4,8 @@
             <h3 class="card-title"><?= $subjudul ?></h3>
 
             <div class="card-tools">
+            <button type="button" class="btn btn-tool"><i 
+                        class="fas fa-print"></i> Print 
                 <button type="button" class="btn btn-tool" data-toggle="modal" data-target="#add-data"><i
                         class="fas fa-plus"></i> Add Data
                 </button>
