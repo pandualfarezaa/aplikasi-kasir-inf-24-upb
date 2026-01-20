@@ -15,12 +15,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/plugins/fontawesome-free/css/all.min.css') ?>">
-      <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="<?= base_url('public/AdminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') ?>">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet"
+        href="<?= base_url('public/AdminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('public/AdminLTE/dist/css/adminlte.min.css') ?>">
 
-      <!-- REQUIRED SCRIPTS -->
+    <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
     <script src="<?= base_url('public/AdminLTE/plugins/jquery/jquery.min.js') ?>"></script>
@@ -130,7 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <h5 class="card-title m-0"></h5>
                             </div>
                             <div class="card-body bg-black collor-palette text-right">
-                                <label class="display-4 text-green" style="font-weight: 600;">Rp. 1,500,500-</h1>
+                                <h1 class="display-4 text-green" style="font-weight: 600;">Rp 0</h1>
                             </div>
                         </div>
                     </div>
@@ -144,12 +145,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <input name="kode_produk" id="kode_produk" class="form-control"
                                                 placeholder="Barcode/Kode Produk">
                                             <div class="input-group-append">
-                                                <button class="btn btn-primary btn-flat" type="button">
+                                                <button id="btn-search" class="btn btn-primary btn-flat" type="button">
                                                     <i class="fas fa-search"></i>
                                                 </button>
-                                                <button class="btn btn-danger btn-flat" type="button">
+                                                <button id="btn-clear" class="btn btn-danger btn-flat" type="button">
                                                     <i class="fas fa-times"></i>
                                                 </button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -166,13 +168,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <input name="harga_jual" class="form-control" placeholder="Harga">
                                     </div>
                                     <div class="col-1">
-                                        <input id= "qty" type="number" min="1" name="qty" class="form-control" placeholder="QTY">
+                                        <input id="qty" type="number" min="1" name="qty" class="form-control"
+                                            placeholder="QTY">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-1">
-                                            <button class="btn btn-flat btn-primary"><i
-                                                    class="fas fa-cart-plus">Add</i></button>
+                                            <button id="btn-add" class="btn btn-flat btn-primary">
+                                                <i class="fas fa-cart-plus"></i> Add
+                                            </button>
                                         </div>
                                     </div>
 
@@ -183,12 +187,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <button class="btn btn-flat btn-success"><i
-                                                    class="fas fa-cash-register">Bayar</i></button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -206,16 +204,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cart-body">
                                 <tr>
-                                    <td>11111</td>
-                                    <td>Sari Roti Coklat</td>
-                                    <td>Makanan</td>
-                                    <td class="text-right">Rp 15.000,</td>
-                                    <td class="text-center">2 pcs</td>
-                                    <td class="text-right">Rp 30.000,</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-right"></td>
                                     <td class="text-center">
-                                        <a class="btn btn-flat btn-danger"> <i class="fa fa-times"></i></a>
+                                        <button class="btn btn-danger btn-sm"
+                                            onclick="DeleteCart('${item.kode_produk}')">
+                                            <i class="fa fa-times"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -224,14 +225,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="col-lg-12">
                         <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title m-0"></h5>
-                            </div>
-                            <div class="card-body bg-black collor-palette text-center">
-                                <h1 class="text-warning">Satu Juta Lima Ratus Ribu Lima Ratus Rupiah</h1>
+                            <div class="card-body bg-black text-right">
+
+                                <h1 class="display-4 text-green mb-3" id="grand-total">Rp 0</h1>
+
+                                <input type="number" id="dibayar" class="form-control form-control-lg mb-2"
+                                    placeholder="Jumlah Dibayar">
+
+                                <input type="text" id="kembalian" class="form-control form-control-lg mb-2"
+                                    placeholder="Kembalian" readonly>
+
+                                <button type="submit" id="btn-bayar" class="btn btn-success btn-lg btn-block" disabled>
+                                    <i class="fas fa-cash-register"></i> BAYAR
+                                </button>
+
+
                             </div>
                         </div>
                     </div>
+
                     <!-- /.col-md-6 -->
                 </div>
                 <!-- /.row -->
@@ -261,50 +273,74 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
 
 
-<script>
-    $(document).ready(function() {
-  
-  $('#kode_produk').keydown(function(e) {
-    let kode_produk = $('#kode_produk').val();
-    if (e.keyCode == 13) {
-      e.preventDefault();
-      if (kode_produk.length == 0) {
-      Swal.fire("kodenya input dulu yh syank");
+    <script>
+        $(document).ready(function () {
 
-      } else {
-          CekProduk();
-      }
-    }
-  });
-});
+            // Enter dari barcode
+            $('#kode_produk').keydown(function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    CekProduk();
+                }
+            });
 
-function CekProduk() {
-    $.ajax({
-        type: "POST",
-        url: "<?= base_url('public/penjualan/CekProduk') ?>",
-        data: {
-            kode_produk: $('#kode_produk').val(),
-        },
-        dataType: "JSON",
-        success: function(response) {
-            if (response.nama_produk == '') {
-                Swal.fire('Kode Produk Tidak Terdaftar Di Database !!!');
-            } else {
-                $('[name="nama_produk"]').val(response.nama_produk);
-                $('[name="nama_kategori"]').val(response.nama_kategori);
-                $('[name="nama_satuan"]').val(response.nama_satuan);
-                $('[name="harga_jual"]').val(response.harga_jual);
-                $('#qty').focus();
+            // Klik search
+            $('#btn-search').click(function () {
+                CekProduk();
+            });
+
+            // Klik clear
+            $('#btn-clear').click(function () {
+                ClearProduk();
+            });
+
+        });
+
+        function CekProduk() {
+            let kode = $('#kode_produk').val();
+
+            if (kode == '') {
+                Swal.fire('Kode produk belum diisi!');
+                return;
             }
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('public/penjualan/CekProduk') ?>",
+                data: {
+                    kode_produk: kode
+                },
+                dataType: "JSON",
+                success: function (response) {
+                    if (!response || response.nama_produk == '') {
+                        Swal.fire('Produk tidak ditemukan!');
+                        ClearProduk();
+                    } else {
+                        $('[name="nama_produk"]').val(response.nama_produk);
+                        $('[name="nama_kategori"]').val(response.nama_kategori);
+                        $('[name="nama_satuan"]').val(response.nama_satuan);
+                        $('[name="harga_jual"]').val(response.harga_jual);
+                        $('#qty').val(1).focus();
+                    }
+                }
+            });
         }
-    });
-}
+
+        function ClearProduk() {
+            $('#kode_produk').val('').focus();
+            $('[name="nama_produk"]').val('');
+            $('[name="nama_kategori"]').val('');
+            $('[name="nama_satuan"]').val('');
+            $('[name="harga_jual"]').val('');
+            $('#qty').val('');
+        }
     </script>
 
+
     <script>
-        window.onload = function() { 
+        window.onload = function () {
             startTime();
-         }
+        }
 
         function startTime() {
             var today = new Date();
@@ -314,7 +350,7 @@ function CekProduk() {
             m = checkTime(m);
             s = checkTime(s);
             document.getElementById('jam').innerHTML = h + ":" + m + ":" + s;
-            var t = setTimeout(function() {
+            var t = setTimeout(function () {
                 startTime();
             }, 1000);
         }
@@ -325,6 +361,182 @@ function CekProduk() {
             }
             return i;
         }
-      </script>
+    </script>
+
+    <script>
+        $('#btn-add').click(function () {
+            AddCart();
+        });
+
+        function AddCart() {
+            let kode = $('#kode_produk').val();
+            let qty = $('#qty').val();
+
+            if (kode == '' || qty == '' || qty <= 0) {
+                Swal.fire('Kode & Qty wajib diisi!');
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('public/penjualan/AddCart') ?>",
+                data: {
+                    kode_produk: kode,
+                    qty: qty
+                },
+                dataType: "JSON",
+                success: function (response) {
+                    if (response.error) {
+                        Swal.fire(response.error);
+                    } else {
+                        renderCart(response.cart);
+                        ClearProduk();
+                    }
+                }
+            });
+        }
+
+
+    </script>
+    <script>
+        let grandTotal = 0;
+
+        function renderCart(cart) {
+            let html = '';
+            grandTotal = 0;
+
+            cart.forEach(item => {
+                grandTotal += item.total;
+
+                html += `
+        <tr>
+            <td>${item.kode_produk}</td>
+            <td>${item.nama_produk}</td>
+            <td>${item.kategori}</td>
+            <td class="text-right">Rp ${item.harga_jual.toLocaleString()}</td>
+            <td class="text-center">${item.qty}</td>
+            <td class="text-right">Rp ${item.total.toLocaleString()}</td>
+            <td class="text-center">
+                <button class="btn btn-danger btn-sm"
+                    onclick="DeleteCart('${item.kode_produk}')">
+                    <i class="fa fa-times"></i>
+                </button>
+            </td>
+        </tr>`;
+            });
+
+            $('#cart-body').html(html);
+            $('#grand-total').text('Rp ' + grandTotal.toLocaleString());
+
+            hitungKembalian();
+        }
+    </script>
+
+    <script>
+    const cartSession = <?= json_encode($cart ?? []) ?>;
+        if (cartSession.length > 0) {
+            renderCart(cartSession);
+        }
+    </script>
+
+
+    <script>
+        $('#dibayar').on('input', function () {
+            hitungKembalian();
+        });
+
+        function hitungKembalian() {
+            let dibayar = parseInt($('#dibayar').val()) || 0;
+            let kembali = dibayar - grandTotal;
+
+            if (kembali >= 0 && grandTotal > 0) {
+                $('#kembalian').val('Rp ' + kembali.toLocaleString());
+                $('#btn-bayar').prop('disabled', false);
+            } else {
+                $('#kembalian').val('Rp 0');
+                $('#btn-bayar').prop('disabled', true);
+            }
+        }
+    </script>
+
+
+    <script>
+        function DeleteCart(kode_produk) {
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('pulic/penjualan/DeleteCart') ?>",
+                data: {
+                    kode_produk: kode_produk
+                },
+                dataType: "JSON",
+                success: function (response) {
+                    renderCart(response.cart);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        $('#btn-bayar').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('public/penjualan/Bayar') ?>",
+                data: { dibayar: $('#dibayar').val() },
+                dataType: "JSON",
+                success: function (res) {
+                    if (!res.success) {
+                        Swal.fire(res.error);
+                        return;
+                    }
+
+                    let html = `
+                <p>No Faktur: <b>${res.no_faktur}</b></p>
+                <hr>
+            `;
+
+                    res.cart.forEach(item => {
+                        html += `
+                    ${item.nama_produk} (${item.qty})<br>
+                    Rp ${item.total.toLocaleString()}<hr>
+                `;
+                    });
+
+                    html += `
+                <b>Total:</b> Rp ${res.total.toLocaleString()}<br>
+                <b>Dibayar:</b> Rp ${res.dibayar.toLocaleString()}<br>
+                <b>Kembalian:</b> Rp ${res.kembalian.toLocaleString()}
+            `;
+
+                    $('#struk-body').html(html);
+                    $('#modalStruk').modal('show');
+                }
+            });
+        });
+
+        function closeStruk() {
+            $('#modalStruk').modal('hide');
+            location.reload();
+        }
+
+
+    </script>
+
+
+    <div class="modal fade" id="modalStruk">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Struk Pembayaran</h5>
+                </div>
+                <div class="modal-body" id="struk-body"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger btn-block" onclick="closeStruk()">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>

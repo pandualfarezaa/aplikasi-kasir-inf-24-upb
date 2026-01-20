@@ -32,4 +32,24 @@ class ModelPenjualan extends Model
             ->get()
             ->getRowArray();
     }
+
+    public function insertJual($data)
+    {
+        return $this->db->table('tbl_jual')->insert($data);
+    }
+
+    public function insertRinciJual($data)
+    {
+        return $this->db->table('tbl_rinci_jual')->insert($data);
+    }
+
+    public function updateStok($kode_produk, $qty)
+    {
+        return $this->db->query("
+        UPDATE tbl_produk 
+        SET stok = stok - $qty 
+        WHERE kode_produk = '$kode_produk'
+    ");
+    }
+
 }

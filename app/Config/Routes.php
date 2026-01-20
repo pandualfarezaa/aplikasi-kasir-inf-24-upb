@@ -44,6 +44,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('satuan', 'Satuan::index');
     $routes->get('kategori', 'Kategori::index');
     $routes->get('user', 'User::index');
+    $routes->get('penjualan', 'Penjualan::index');
     $routes->post('satuan/InsertData', 'Satuan::InsertData');
     $routes->post('satuan/UpdateData/(:num)', 'Satuan::UpdateData/$1');
     $routes->get('satuan/delete-data/(:num)', 'Satuan::DeleteData/$1');
@@ -60,17 +61,18 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('produk/UpdateData/(:num)', 'Produk::UpdateData/$1');
     $routes->get('produk/delete-data/(:num)', 'Produk::DeleteData/$1');
     $routes->post('penjualan/CekProduk', 'Penjualan::CekProduk');
-});
-
-
-
-
-
-$routes->group('penjualan', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Penjualan::index');
-    $routes->get('/penjualan', 'Penjualan::index');
+    $routes->post('penjualan/AddCart', 'Penjualan::AddCart');
+    $routes->post('penjualan/DeleteCart', 'Penjualan::DeleteCart');
+    $routes->post('penjualan/SimpanTransaksi', 'Penjualan::SimpanTransaksi');
+    $routes->post('penjualan/Bayar', 'Penjualan::Bayar');
 
 });
+
+
+
+
+
+
 
 
 

@@ -202,6 +202,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
 
+                        <li class="nav-item <?= $menu == 'laporan' ? 'menu-open' : '' ?>">
+                            <a href="#" class="nav-link <?= $menu == 'data' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Laporan
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                        
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('public/produk') ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
+                                        <i class="fas fa-solid fa-arrow-right nav-icon"></i>
+                                        <p>Laporan Harian</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('public/kategori') ?>" class="nav-link <?= $submenu == 'kategori' ? 'active' : '' ?>">
+                                        <i class="fas fa-solid fa-arrow-right nav-icon"></i>
+                                        <p>Laporan Bulanan</p>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
