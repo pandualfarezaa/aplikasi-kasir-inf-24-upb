@@ -65,6 +65,8 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('penjualan/DeleteCart', 'Penjualan::DeleteCart');
     $routes->post('penjualan/SimpanTransaksi', 'Penjualan::SimpanTransaksi');
     $routes->post('penjualan/Bayar', 'Penjualan::Bayar');
+    $routes->get('laporan', 'Laporan::index');
+    $routes->get('laporan/print-data-produk', 'Laporan::PrintDataProduk');
 
 });
 
