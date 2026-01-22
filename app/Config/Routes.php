@@ -66,7 +66,9 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('penjualan/SimpanTransaksi', 'Penjualan::SimpanTransaksi');
     $routes->post('penjualan/Bayar', 'Penjualan::Bayar');
     $routes->get('laporan', 'Laporan::index');
+    $routes->get('laporan/harian', 'Laporan::LaporanHarian');
     $routes->get('laporan/print-data-produk', 'Laporan::PrintDataProduk');
+    
 
 });
 

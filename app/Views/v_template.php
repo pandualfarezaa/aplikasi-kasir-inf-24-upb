@@ -213,7 +213,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('public/produk') ?>" class="nav-link <?= $submenu == 'produk' ? 'active' : '' ?>">
+                                    <a href="<?= base_url('public/laporan/harian') ?>" class="nav-link <?= $submenu == 'laporan-harian' ? 'active' : '' ?>">
                                         <i class="fas fa-solid fa-arrow-right nav-icon"></i>
                                         <p>Laporan Harian</p>
                                     </a>
