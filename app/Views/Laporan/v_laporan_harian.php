@@ -43,7 +43,7 @@
             },
             dataType: "json",
             success: function(response) {
-                if (response.data); {
+                if (response.data) {
                     $('.tabel').html(response.data);
                 }
             },
