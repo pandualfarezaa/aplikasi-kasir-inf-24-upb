@@ -34,20 +34,22 @@
 
 
 <script>
-    function ViewTabelLaporan() {
-        $.ajax({
-            type: "post",
-            url: "<?= base_url('view-laporan-harian') ?>",
-            data: {
-                tgl: $('#tgl').val(),
-            },
-            dataType: "json",
-            success: function(response) {
-                if (response.data); {
-                    $('.tabel').html(response.data);
-                }
-            },
-            
-        })
-    }
+function ViewTabelLaporan() {
+    $.ajax({
+        type: "POST",
+        url: "<?= base_url('view-laporan-harian') ?>",
+        data: {
+            tgl: $('#tgl').val(),
+        },
+        dataType: "json",
+        success: function (response) {
+            if (response.data) {
+                $('.tabel').html(response.data);
+            }
+        },
+        error: function (xhr) {
+            console.log(xhr.responseText);
+        }
+    });
+}
 </script>
