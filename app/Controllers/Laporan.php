@@ -49,4 +49,14 @@ class Laporan extends BaseController
         ];
         return view('v_template', $data);
     }
+
+        public function viewLaporanHarian()
+        {
+            $respone = [
+                'data =>' => view('Laporan/v_tabel_laporan_harian')
+            ];
+
+            echo json_encode($respone);
+        }
+
 }

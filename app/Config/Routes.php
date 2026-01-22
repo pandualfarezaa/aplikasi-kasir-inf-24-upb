@@ -68,7 +68,10 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('laporan', 'Laporan::index');
     $routes->get('laporan/harian', 'Laporan::LaporanHarian');
     $routes->get('laporan/print-data-produk', 'Laporan::PrintDataProduk');
-    
+    $routes->post('view-laporan-harian', 'Laporan::viewLaporanHarian');
+    $routes->get('laporan-harian', 'Laporan::LaporanHarian');
+
+
 
 });
 

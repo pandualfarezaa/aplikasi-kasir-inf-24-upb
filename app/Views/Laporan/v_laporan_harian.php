@@ -11,7 +11,7 @@
                         <div class="col-sm-10 input-group">
                             <input type="date" name="tgl" id="tgl" class="form-control" placeholder="Tanggal">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary btn-flat" type="button">
+                                    <button onclick="ViewTabelLaporan()" class="btn btn-primary btn-flat" type="button">
                                         <i class="fas fa-file-alt"></i> view laporan
                                     </button>
                                     <button class="btn btn-danger btn-flat" type="button">
@@ -24,9 +24,30 @@
             </div>
         </div>
         <div class="col-sm-12">
+            <hr>
             <div class="tabel">
 
             </div>
         </div>
     </div>
 </div>    
+
+
+<script>
+    function ViewTabelLaporan() {
+        $.ajax({
+            type: "post",
+            url: "<?= base_url('view-laporan-harian') ?>",
+            data: {
+                tgl: $('#tgl').val(),
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.data); {
+                    $('.tabel').html(response.data);
+                }
+            },
+            
+        })
+    }
+</script>
